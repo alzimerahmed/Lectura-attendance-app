@@ -20,6 +20,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.navArgument
 import com.alzimerahmed.lumera.data.preferences.UserPreferences
 import com.alzimerahmed.lumera.ui.screens.analytics.AnalyticsScreen
@@ -113,8 +114,8 @@ fun NavGraph(
             }
 
             composable(Screen.Setup.route) {
-                val settingsVm: SettingsViewModel = getViewModel { app -> SettingsViewModel(app.repository, app.userPreferencesRepository) }
-                val subjectsVm: SubjectsViewModel = getViewModel { app -> SubjectsViewModel(app.repository, app.userPreferencesRepository) }
+                val settingsVm: SettingsViewModel = hiltViewModel()
+                val subjectsVm: SubjectsViewModel = hiltViewModel()
                 val prefs by settingsVm.userPreferences.collectAsState()
 
                 SetupScreen(
@@ -150,7 +151,7 @@ fun NavGraph(
             }
 
             composable(Screen.Home.route) {
-                val homeVm: HomeViewModel = getViewModel { app -> HomeViewModel(app.repository, app.userPreferencesRepository) }
+                val homeVm: HomeViewModel = hiltViewModel()
                 HomeScreen(
                     viewModel = homeVm,
                     onNavigateToAddSubject = { navigateToTab(Screen.Subjects.route) },
@@ -160,7 +161,7 @@ fun NavGraph(
             }
 
             composable(Screen.Timetable.route) {
-                val timetableVm: TimetableViewModel = getViewModel { app -> TimetableViewModel(app.repository, app.userPreferencesRepository) }
+                val timetableVm: TimetableViewModel = hiltViewModel()
                 TimetableScreen(
                     viewModel = timetableVm,
                     onNavigateBack = {
@@ -172,7 +173,7 @@ fun NavGraph(
             }
 
             composable(Screen.Subjects.route) {
-                val subjectsVm: SubjectsViewModel = getViewModel { app -> SubjectsViewModel(app.repository, app.userPreferencesRepository) }
+                val subjectsVm: SubjectsViewModel = hiltViewModel()
                 SubjectsScreen(
                     viewModel = subjectsVm,
                     onNavigateToSubjectDetail = { subId ->
@@ -191,7 +192,7 @@ fun NavGraph(
                 arguments = listOf(navArgument("subjectId") { type = NavType.LongType })
             ) { backStackEntry ->
                 val subjectId = backStackEntry.arguments?.getLong("subjectId") ?: 0L
-                val detailVm: SubjectDetailViewModel = getViewModel { app -> SubjectDetailViewModel(app.repository, subjectId, app.userPreferencesRepository) }
+                val detailVm: SubjectDetailViewModel = hiltViewModel()
                 SubjectDetailScreen(
                     viewModel = detailVm,
                     onNavigateBack = { navController.popBackStack() }
@@ -199,7 +200,7 @@ fun NavGraph(
             }
 
             composable(Screen.Analytics.route) {
-                val analyticsVm: AnalyticsViewModel = getViewModel { app -> AnalyticsViewModel(app.repository, app.userPreferencesRepository) }
+                val analyticsVm: AnalyticsViewModel = hiltViewModel()
                 AnalyticsScreen(
                     viewModel = analyticsVm,
                     onNavigateToSubjectDetail = { subId ->
@@ -209,12 +210,12 @@ fun NavGraph(
             }
 
             composable(Screen.History.route) {
-                val historyVm: HistoryViewModel = getViewModel { app -> HistoryViewModel(app.repository) }
+                val historyVm: HistoryViewModel = hiltViewModel()
                 AttendanceHistoryScreen(viewModel = historyVm)
             }
 
             composable(Screen.Settings.route) {
-                val settingsVm: SettingsViewModel = getViewModel { app -> SettingsViewModel(app.repository, app.userPreferencesRepository) }
+                val settingsVm: SettingsViewModel = hiltViewModel()
                 SettingsScreen(
                     viewModel = settingsVm,
                     onNavigateBack = { navController.popBackStack() }

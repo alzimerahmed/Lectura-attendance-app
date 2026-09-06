@@ -10,6 +10,7 @@ package com.alzimerahmed.lumera
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
+import dagger.hilt.android.AndroidEntryPoint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -32,6 +33,7 @@ import com.alzimerahmed.lumera.ui.navigation.NavGraph
 import com.alzimerahmed.lumera.ui.theme.LumeraTheme
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

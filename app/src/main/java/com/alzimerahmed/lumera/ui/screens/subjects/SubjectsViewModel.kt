@@ -8,6 +8,8 @@
 package com.alzimerahmed.lumera.ui.screens.subjects
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.local.entity.SubjectEntity
 import com.alzimerahmed.lumera.data.preferences.UserPreferences
@@ -31,12 +33,13 @@ private data class SubjectFilter(
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class SubjectsViewModel(
+@HiltViewModel
+class SubjectsViewModel @Inject constructor(
     private val repository: LumeraRepository,
-    private val preferencesRepository: UserPreferencesRepository? = null
+    private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
 
-    val userPreferences: StateFlow<UserPreferences> = (preferencesRepository?.userPreferencesFlow ?: flowOf(UserPreferences()))
+    val userPreferences: StateFlow<UserPreferences> = preferencesRepository.userPreferencesFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, UserPreferences())
 
     private val _searchQuery = MutableStateFlow("")

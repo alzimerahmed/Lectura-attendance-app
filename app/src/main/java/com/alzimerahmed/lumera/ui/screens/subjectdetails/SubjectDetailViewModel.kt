@@ -8,6 +8,9 @@
 package com.alzimerahmed.lumera.ui.screens.subjectdetails
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.local.entity.SubjectEntity
 import com.alzimerahmed.lumera.data.preferences.UserPreferences
@@ -22,13 +25,16 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class SubjectDetailViewModel(
+@HiltViewModel
+class SubjectDetailViewModel @Inject constructor(
     private val repository: LumeraRepository,
-    private val subjectId: Long,
-    private val preferencesRepository: UserPreferencesRepository? = null
+    savedStateHandle: SavedStateHandle,
+    private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
 
-    val userPreferences: StateFlow<UserPreferences> = (preferencesRepository?.userPreferencesFlow ?: flowOf(UserPreferences()))
+    private val subjectId: Long = savedStateHandle.get<Long>("subjectId") ?: 0L
+
+    val userPreferences: StateFlow<UserPreferences> = preferencesRepository.userPreferencesFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, UserPreferences())
 
     val subject: StateFlow<SubjectEntity?> = repository.getSubjectByIdFlow(subjectId)

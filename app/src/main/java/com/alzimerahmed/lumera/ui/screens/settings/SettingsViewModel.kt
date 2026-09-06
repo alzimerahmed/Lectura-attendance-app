@@ -10,6 +10,8 @@ package com.alzimerahmed.lumera.ui.screens.settings
 import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.preferences.UserPreferences
 import com.alzimerahmed.lumera.data.preferences.UserPreferencesRepository
@@ -22,7 +24,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class SettingsViewModel(
+@HiltViewModel
+class SettingsViewModel @Inject constructor(
     private val repository: LumeraRepository,
     private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
@@ -152,4 +155,3 @@ class SettingsViewModel(
         }
     }
 }
-

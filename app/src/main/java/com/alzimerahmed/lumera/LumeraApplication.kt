@@ -8,12 +8,14 @@
 package com.alzimerahmed.lumera
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import com.alzimerahmed.lumera.data.local.database.AppDatabase
 import com.alzimerahmed.lumera.data.preferences.UserPreferencesRepository
 import com.alzimerahmed.lumera.data.repository.LumeraRepository
 import com.alzimerahmed.lumera.notification.NotificationHelper
 import com.alzimerahmed.lumera.worker.ReminderWorker
 
+@HiltAndroidApp
 class LumeraApplication : Application() {
 
     lateinit var database: AppDatabase

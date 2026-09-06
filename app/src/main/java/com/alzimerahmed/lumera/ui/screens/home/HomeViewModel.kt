@@ -8,6 +8,8 @@
 package com.alzimerahmed.lumera.ui.screens.home
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.local.entity.AttendanceSessionEntity
 import com.alzimerahmed.lumera.data.local.entity.AttendanceUnitEntity
@@ -26,7 +28,8 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class HomeViewModel(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
     private val repository: LumeraRepository,
     private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {

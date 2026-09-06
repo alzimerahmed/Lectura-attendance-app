@@ -8,6 +8,8 @@
 package com.alzimerahmed.lumera.ui.screens.history
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.local.entity.AttendanceSessionEntity
 import com.alzimerahmed.lumera.data.local.entity.AttendanceUnitEntity
@@ -25,7 +27,8 @@ data class HistoryRecord(
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class HistoryViewModel(
+@HiltViewModel
+class HistoryViewModel @Inject constructor(
     private val repository: LumeraRepository
 ) : ViewModel() {
 

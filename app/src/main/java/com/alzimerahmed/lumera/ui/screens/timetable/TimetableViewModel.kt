@@ -12,6 +12,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.local.entity.SubjectEntity
 import com.alzimerahmed.lumera.data.local.entity.TimetableEntryEntity
@@ -28,9 +30,10 @@ import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class TimetableViewModel(
+@HiltViewModel
+class TimetableViewModel @Inject constructor(
     private val repository: LumeraRepository,
-    private val preferencesRepository: UserPreferencesRepository? = null
+    private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
 
     private val ocrService = TimetableOcrService()
@@ -44,14 +47,14 @@ class TimetableViewModel(
     val activeSubjects: StateFlow<List<SubjectEntity>> = repository.activeSubjects
         .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
-    val geminiApiKey: StateFlow<String> = (preferencesRepository?.userPreferencesFlow
+    val geminiApiKey: StateFlow<String> = (preferencesRepository.userPreferencesFlow
         ?.map { it.geminiApiKey }
         ?: flowOf(""))
         .stateIn(viewModelScope, SharingStarted.Eagerly, "")
 
     fun saveGeminiApiKey(apiKey: String) {
         viewModelScope.launch {
-            preferencesRepository?.updateGeminiApiKey(apiKey)
+            preferencesRepository.updateGeminiApiKey(apiKey)
         }
     }
 
@@ -167,7 +170,7 @@ class TimetableViewModel(
                     return@launch
                 }
                 _ocrState.value = AiTimetableOcrState.Processing(imageUri = uri, stepMessage = "Extracting classes & timings from timetable...")
-                val customKey = preferencesRepository?.userPreferencesFlow?.first()?.geminiApiKey
+                val customKey = preferencesRepository.userPreferencesFlow?.first()?.geminiApiKey
                 val items = ocrService.extractTimetableFromImage(bitmap, isSampleImage = false, customApiKey = customKey)
                 if (items.isEmpty()) {
                     _ocrState.value = AiTimetableOcrState.Error("No valid class schedule detected. Please ensure the timetable is clearly visible.")
@@ -184,7 +187,7 @@ class TimetableViewModel(
         viewModelScope.launch {
             _ocrState.value = AiTimetableOcrState.Processing(imageUri = null, stepMessage = "Analyzing sample timetable image...")
             try {
-                val customKey = preferencesRepository?.userPreferencesFlow?.first()?.geminiApiKey
+                val customKey = preferencesRepository.userPreferencesFlow?.first()?.geminiApiKey
                 val items = ocrService.extractTimetableFromImage(bitmap, isSampleImage = true, customApiKey = customKey)
                 if (items.isEmpty()) {
                     _ocrState.value = AiTimetableOcrState.Error("No valid class schedule detected.")

@@ -8,6 +8,8 @@
 package com.alzimerahmed.lumera.ui.screens.analytics
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.local.entity.SubjectEntity
 import com.alzimerahmed.lumera.data.preferences.UserPreferences
@@ -31,7 +33,8 @@ data class AnalyticsState(
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class AnalyticsViewModel(
+@HiltViewModel
+class AnalyticsViewModel @Inject constructor(
     private val repository: LumeraRepository,
     private val preferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
