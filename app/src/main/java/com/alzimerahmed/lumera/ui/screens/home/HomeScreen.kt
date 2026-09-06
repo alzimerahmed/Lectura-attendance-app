@@ -27,8 +27,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.alzimerahmed.lumera.domain.calculator.AttendanceCalculator
 import com.alzimerahmed.lumera.domain.model.ClassScheduleItem
 import com.alzimerahmed.lumera.ui.components.AddExtraClassDialog
 import com.alzimerahmed.lumera.ui.components.AttendanceProgressCard
@@ -58,6 +60,7 @@ fun HomeScreen(
     val overallSummary by viewModel.overallSummary.collectAsState()
     val allActiveSubjects by viewModel.allActiveSubjects.collectAsState()
     val currentClass by viewModel.currentClass.collectAsState()
+    val subjectRisks by viewModel.subjectRisks.collectAsState()
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -68,6 +71,7 @@ fun HomeScreen(
     var showAddExtraClassDialog by remember { mutableStateOf(false) }
     var showFabMenu by remember { mutableStateOf(false) }
     var showDatePickerDialog by remember { mutableStateOf(false) }
+    var showSimulator by remember { mutableStateOf(false) }
 
     val userPreferences by viewModel.userPreferences.collectAsState()
     val isSelectedDateInSemester by viewModel.isSelectedDateInSemester.collectAsState()
@@ -347,6 +351,47 @@ fun HomeScreen(
                     }
                 }
 
+                // Risk strip: subjects below or near their target
+                item {
+                    val risks = subjectRisks.filter { it.isRecovering || it.isAtRisk }
+                    if (risks.isNotEmpty()) {
+                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                            risks.take(4).forEach { risk ->
+                                Surface(
+                                    shape = RoundedCornerShape(12.dp),
+                                    color = if (risk.isRecovering)
+                                        MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
+                                    else
+                                        MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.5f),
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Row(
+                                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Text(
+                                            text = risk.name,
+                                            style = MaterialTheme.typography.titleSmall,
+                                            fontWeight = FontWeight.Bold,
+                                            modifier = Modifier.weight(1f),
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis
+                                        )
+                                        Text(
+                                            text = if (risk.isRecovering)
+                                                "${"%.1f".format(risk.percentage)}% - attend ${risk.requiredUnits} more"
+                                            else
+                                                "${"%.1f".format(risk.percentage)}% - only ${risk.safeBunks} safe bunk${if (risk.safeBunks == 1) "" else "s"}",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = if (risk.isRecovering) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onTertiaryContainer
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 item {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -364,6 +409,9 @@ fun HomeScreen(
                                 style = MaterialTheme.typography.labelMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
+                        }
+                        TextButton(onClick = { showSimulator = true }) {
+                            Text("What if?")
                         }
                     }
                 }
@@ -514,6 +562,16 @@ fun HomeScreen(
         }
     }
 
+    // What-if simulator sheet
+    if (showSimulator) {
+        WhatIfSimulatorSheet(
+            presentUnits = overallSummary.presentUnits,
+            absentUnits = overallSummary.absentUnits,
+            targetPercentage = overallSummary.targetPercentage,
+            onDismiss = { showSimulator = false }
+        )
+    }
+
     // Bottom Sheet for Editing Units
     activeSheetItem?.let { item ->
         EditUnitBottomSheet(
@@ -651,6 +709,96 @@ private fun CurrentClassCard(info: HomeViewModel.CurrentClassInfo) {
                     color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.85f)
                 )
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun WhatIfSimulatorSheet(
+    presentUnits: Int,
+    absentUnits: Int,
+    targetPercentage: Double,
+    onDismiss: () -> Unit
+) {
+    var attended by remember { mutableStateOf(0) }
+    var missed by remember { mutableStateOf(0) }
+
+    val projected = AttendanceCalculator.projectAttendance(
+        presentUnits = presentUnits,
+        absentUnits = absentUnits,
+        futureAttended = attended,
+        futureMissed = missed,
+        targetPercentage = targetPercentage
+    )
+    val current = if (presentUnits + absentUnits > 0) {
+        presentUnits.toDouble() / (presentUnits + absentUnits) * 100.0
+    } else 0.0
+
+    ModalBottomSheet(onDismissRequest = onDismiss) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Text(
+                text = "What-if Simulator",
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = "Current: ${"%.1f".format(current)}%",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Text(
+                text = "${"%.1f".format(projected)}%",
+                style = MaterialTheme.typography.displayMedium,
+                fontWeight = FontWeight.Bold,
+                color = if (projected >= targetPercentage) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+            )
+            Text(
+                text = if (projected >= targetPercentage)
+                    "Above your ${targetPercentage.toInt()}% target"
+                else
+                    "Below your ${targetPercentage.toInt()}% target",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("Attend", style = MaterialTheme.typography.labelLarge)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(
+                            onClick = { if (attended > 0) attended-- },
+                            enabled = attended > 0
+                        ) { Icon(Icons.Default.Remove, contentDescription = "Less") }
+                        Text("$attended", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                        IconButton(onClick = { attended++ }) {
+                            Icon(Icons.Default.Add, contentDescription = "More")
+                        }
+                    }
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("Miss", style = MaterialTheme.typography.labelLarge)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(
+                            onClick = { if (missed > 0) missed-- },
+                            enabled = missed > 0
+                        ) { Icon(Icons.Default.Remove, contentDescription = "Less") }
+                        Text("$missed", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                        IconButton(onClick = { missed++ }) { Icon(Icons.Default.Add, contentDescription = "More") }
+                    }
+                }
+            }
+            TextButton(onClick = onDismiss) { Text("Close") }
+            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }

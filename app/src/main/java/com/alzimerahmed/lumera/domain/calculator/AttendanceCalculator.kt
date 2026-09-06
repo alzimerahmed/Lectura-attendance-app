@@ -12,6 +12,13 @@ import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.roundToInt
 
+data class RecoveryPlan(
+    val isRecovering: Boolean,
+    val requiredConsecutiveUnits: Int,
+    val projectedPercentage: Double,
+    val targetPercentage: Double
+)
+
 data class AttendanceSummary(
     val totalConductedUnits: Int,
     val presentUnits: Int,
@@ -151,6 +158,69 @@ object AttendanceCalculator {
             else -> {
                 "You are on the margin of your $roundedTarget% target. Avoid missing the next class."
             }
+        }
+    }
+
+    /**
+     * Recovery plan for a subject below its target: how many consecutive present
+     * units are needed and the projected percentage after recovery.
+     */
+    fun recoveryPlan(
+        presentUnits: Int,
+        absentUnits: Int,
+        targetPercentage: Double = 75.0
+    ): RecoveryPlan {
+        val safeTarget = targetPercentage.coerceIn(1.0, 100.0)
+        val required = calculate(
+            presentUnits = presentUnits,
+            absentUnits = absentUnits,
+            targetPercentage = safeTarget
+        ).requiredUnitsToTarget
+        val projected = if (required == Int.MAX_VALUE) {
+            0.0
+        } else {
+            val T = (presentUnits + absentUnits + required).toDouble()
+            if (T > 0) ((presentUnits + required) / T) * 100.0 else 0.0
+        }
+        return RecoveryPlan(
+            isRecovering = presentUnits + absentUnits > 0 &&
+                (presentUnits.toDouble() / (presentUnits + absentUnits).coerceAtLeast(1)) * 100.0 < safeTarget - 1e-9,
+            requiredConsecutiveUnits = required,
+            projectedPercentage = projected,
+            targetPercentage = safeTarget
+        )
+    }
+
+    /**
+     * Projects the attendance percentage after `futureAttended` attended and
+     * `futureMissed` missed units on top of the current record.
+     */
+    fun projectAttendance(
+        presentUnits: Int,
+        absentUnits: Int,
+        futureAttended: Int = 0,
+        futureMissed: Int = 0,
+        targetPercentage: Double = 75.0
+    ): Double {
+        val P = (presentUnits + futureAttended).toDouble()
+        val T = (presentUnits + absentUnits + futureAttended + futureMissed).toDouble()
+        return if (T > 0) (P / T) * 100.0 else 0.0
+    }
+
+    /**
+     * What-if simulation: percentage if the next `bunkUnits` are missed
+     * (negative values simulate attending instead).
+     */
+    fun simulate(
+        presentUnits: Int,
+        absentUnits: Int,
+        bunkUnits: Int,
+        targetPercentage: Double = 75.0
+    ): Double {
+        return if (bunkUnits >= 0) {
+            projectAttendance(presentUnits, absentUnits, futureMissed = bunkUnits, targetPercentage = targetPercentage)
+        } else {
+            projectAttendance(presentUnits, absentUnits, futureAttended = -bunkUnits, targetPercentage = targetPercentage)
         }
     }
 }

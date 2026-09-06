@@ -93,5 +93,34 @@ class AttendanceCalculatorTest {
         assertEquals(83.33, summary.percentage, 0.01)
         assertTrue(summary.percentage >= 75.0)
     }
-}
 
+    @Test
+    fun testRecoveryPlan() {
+        // 5 present / 10 total = 50%, target 75% -> need 10 consecutive presents
+        val plan = AttendanceCalculator.recoveryPlan(presentUnits = 5, absentUnits = 5, targetPercentage = 75.0)
+        assertTrue(plan.isRecovering)
+        assertEquals(10, plan.requiredConsecutiveUnits)
+        assertEquals(75.0, plan.projectedPercentage, 0.01)
+
+        // Already above target -> not recovering
+        val fine = AttendanceCalculator.recoveryPlan(presentUnits = 9, absentUnits = 1, targetPercentage = 75.0)
+        assertTrue(!fine.isRecovering)
+        assertEquals(0, fine.requiredConsecutiveUnits)
+    }
+
+    @Test
+    fun testProjectAttendance() {
+        // 6/8 = 75%; attend 2 more -> 8/10 = 80%
+        assertEquals(80.0, AttendanceCalculator.projectAttendance(6, 2, futureAttended = 2), 0.01)
+        // miss 2 -> 6/10 = 60%
+        assertEquals(60.0, AttendanceCalculator.projectAttendance(6, 2, futureMissed = 2), 0.01)
+    }
+
+    @Test
+    fun testSimulate() {
+        // 6/8 = 75%, bunk 1 -> 6/9 = 66.67%
+        assertEquals(66.66, AttendanceCalculator.simulate(6, 2, bunkUnits = 1), 0.01)
+        // attend 1 more -> 7/9 = 77.78%
+        assertEquals(77.78, AttendanceCalculator.simulate(6, 2, bunkUnits = -1), 0.01)
+    }
+}

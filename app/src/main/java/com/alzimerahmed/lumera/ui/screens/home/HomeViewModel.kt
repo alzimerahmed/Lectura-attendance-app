@@ -163,6 +163,44 @@ class HomeViewModel @Inject constructor(
         isDateInSemester(dateIso, prefs)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, true)
 
+    data class SubjectRisk(
+        val subjectId: Long,
+        val name: String,
+        val colorValue: Long,
+        val percentage: Double,
+        val target: Double,
+        val safeBunks: Int,
+        val requiredUnits: Int
+    ) {
+        val isRecovering: Boolean get() = percentage < target - 1e-9
+        val isAtRisk: Boolean get() = !isRecovering && percentage < target + 5.0
+    }
+
+    /** Per-subject risk list, most at-risk first. */
+    val subjectRisks: StateFlow<List<SubjectRisk>> = combine(
+        repository.allUnits,
+        repository.allSessions,
+        repository.activeSubjects,
+        userPreferences
+    ) { units, sessions, subjects, _ ->
+        subjects.map { subject ->
+            val sessionIds = sessions.filter { it.subjectId == subject.id }.map { it.id }.toSet()
+            val statuses = units.filter { it.sessionId in sessionIds }.mapNotNull {
+                try { AttendanceStatus.valueOf(it.status) } catch (_: Exception) { null }
+            }
+            val summary = AttendanceCalculator.calculate(statuses, subject.targetPercentage)
+            SubjectRisk(
+                subjectId = subject.id,
+                name = subject.name,
+                colorValue = subject.colorValue,
+                percentage = summary.percentage,
+                target = subject.targetPercentage,
+                safeBunks = summary.safeBunks,
+                requiredUnits = summary.requiredUnitsToTarget
+            )
+        }.sortedBy { it.percentage - it.target }
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
+
     val overallSummary: StateFlow<AttendanceSummary> = combine(
         repository.allUnits,
         repository.allSessions,
