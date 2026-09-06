@@ -27,7 +27,7 @@ android {
     val storePass = System.getenv("STORE_PASSWORD")?.takeIf { it.isNotBlank() }
     val keystorePath = System.getenv("KEYSTORE_PATH")?.takeIf { it.isNotBlank() } ?: "${rootDir}/Lumera.jks"
     val keystoreFile = file(keystorePath)
-    val aliasEnv = System.getenv("KEY_ALIAS")?.takeIf { it.isNotBlank() } ?: "upload"
+    val aliasEnv = System.getenv("KEY_ALIAS")?.takeIf { it.isNotBlank() } ?: "lumera"
     val keyPassEnv = System.getenv("KEY_PASSWORD")?.takeIf { it.isNotBlank() } ?: storePass
 
     if (keystoreFile.exists() && !storePass.isNullOrBlank()) {
