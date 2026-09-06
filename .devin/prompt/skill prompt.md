@@ -1,6 +1,6 @@
 # Prompt 1
 
-1) i need you to download a "website research & discovery skill" that provides a comprehensive, structured research methodology for gathering every piece of information needed to design and build any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"website research & discovery" skill** — a comprehensive, structured research methodology covering every piece of information needed to design and build any website I create in this project and future projects. It must cover:
 
    - **Project discovery** — project type identification (corporate, e-commerce, portfolio, blog, SaaS, landing page, educational, non-profit, hospitality, real estate, event, personal brand), stakeholder questionnaire, scope document creation, goal definition (sales, leads, awareness, portfolio), target audience profiling
    - **Competitive & reference research** — competitor site analysis (layout, navigation, color, typography, imagery, animation, content tone, CTA strategy, social proof, mobile responsiveness, page speed, SEO structure), industry trend research, award-winning site discovery (Awwwards, CSS Design Awards), visual inspiration gathering, mood board creation
@@ -12,16 +12,16 @@
 
    the skill should reflect modern 2025-2026 research practices — using browser tools to visit and analyze reference sites, web search for industry trends, and structured documentation that can be referenced throughout the entire development process.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that website research & discovery skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 2
 
-1) i need you to download a "claude taste frontend design skill" that encodes the design taste, preferences, and principles that produce distinctive, intentional, non-generic frontend design for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"claude taste frontend design" skill** — one that encodes the design taste, preferences, and principles that produce distinctive, intentional, non-generic frontend design for any website I create in this project and future projects. It must cover:
 
    - **AI slop catalog (what to avoid)** — color anti-patterns (blue primary, blue-to-purple gradients, gray-50 backgrounds, shallow palettes, white cards on gray, oversaturated accents, gradient buttons, colored badge pills, pure black/white text, Tailwind semantic colors), typography anti-patterns (Inter as only font, system-UI stacks, uniform type scales, no letter-spacing, bold for all headings, text-gray-600 body, no display font, uniform line height, no prose styling, centered text everywhere, no font features, all-caps without tracking), layout anti-patterns (three-column equal grids, max-w-7xl everywhere, symmetric padding, template section order, all content centered, equal-height cards, sticky nav with blur, no full-bleed, 4-column footer, no whitespace, no off-grid elements, Z-pattern forever), animation anti-patterns (fade-up on scroll, hover scale 1.05, stagger 0.1s, duration 300ms, ease-in-out everywhere, infinite pulse, parallax hero, counting numbers, typewriter hero, floating icons, skeleton shimmer, no reduced-motion), component anti-patterns (icon+heading+paragraph cards, badge+h1+subtitle+2-button hero, testimonial cards with circle avatars, pricing cards with popular badge, FAQ accordion with chevrons, newsletter input+inline button, stats with big numbers, logo cloud grayscale, CTA with gradient background, tabs with sliding underline, modal with backdrop blur)
    - **Design principles (what to do)** — ground it in the subject (name concrete subject, identify audience, define page's single job), hero as thesis (open with the most characteristic thing, be deliberate), typography carries personality (avoid Inter/Roboto/Open Sans, pair high-contrast faces, use extremes in weight and size, modular type scale with ratio 1.25 or 1.333, contextual line height and letter spacing, optimal line length 60-75ch, enable OpenType features), color & theme (60-30-10 palette construction, distinctive palette sources, neutrals with hue, CSS variables for consistency, separately designed dark mode), layout & structure (vary section padding and max-width, asymmetric grids, left-align by default, generous whitespace, full-bleed elements, mobile-first responsive with clamp() and container queries), motion & interaction (animate only transform and opacity, custom cubic-bezier curves, vary duration by element, under 100ms response time, prefers-reduced-motion support), backgrounds & atmosphere (layered gradients, geometric patterns, micro-gradients, depth with stacked shadows), copy as design material (write from user's side, active voice, be specific not clever, errors don't apologize, empty states are invitations), accessibility as design quality (WCAG 2.2 AA, visible focus states, keyboard nav, semantic HTML, reduced motion)
@@ -32,16 +32,16 @@
 
    the skill should reflect modern 2025-2026 frontend design standards — synthesizing Anthropic's official frontend design guidance, modern web design trends, and a comprehensive catalog of AI design anti-patterns. every choice must be grounded in the specific subject, audience, and purpose — if the design could belong to any project, it belongs to no project.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that claude taste frontend design skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 3
 
-1) i need you to download a "backend design structural system skill" that gives me all the architecture patterns, structural design principles, and engineering best practices for building robust, scalable, and maintainable backends for any kind of website or web application that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"backend design structural system" skill** — architecture patterns, structural design principles, and engineering best practices for building robust, scalable, maintainable backends for any website or web app I create in this project and future projects. It must cover:
 
    - **API design** — RESTful conventions, GraphQL schemas, RPC patterns, versioning strategies, pagination, error handling, response envelopes, idempotency
    - **Data modeling** — database schema design, normalization vs denormalization, indexing strategies, relationship modeling, migration patterns, ORM vs raw SQL tradeoffs
@@ -57,15 +57,15 @@
 
    the skill should reflect modern 2025-2026 backend engineering standards — not legacy patterns or AI-generated boilerplate. it should encode opinionated, deliberate choices grounded in the specific project's needs, not generic templates.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that backend design structural system skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 # Prompt 4
 
-1) i need you to download a "search & conversion optimization skill" that covers the full spectrum of modern web optimization disciplines for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"search & conversion optimization" skill** — covering the full spectrum of modern web optimization disciplines for any website I create in this project and future projects. It must cover:
 
    - **SEO (Search Engine Optimization)** — on-page optimization (meta tags, heading hierarchy, semantic HTML, internal linking, content optimization), technical SEO (core web vitals, crawlability, sitemaps, robots.txt, canonical URLs, schema.org structured data), off-page SEO (backlink strategy, social signals), keyword research methodology, SERP feature targeting
    - **GEO (Generative Engine Optimization)** — optimizing content for AI-powered search engines (ChatGPT, Perplexity, Google AI Overviews), structured data for LLM comprehension, citation-worthy content formatting, entity-based content modeling, fact density and source transparency
@@ -77,16 +77,16 @@
 
    the skill should reflect modern 2025-2026 optimization standards including AI search engines, voice search, and evolving SERP features — not outdated keyword-stuffing tactics or generic checklists.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that search & conversion optimization skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 5
 
-1) i need you to download a "code review skill" that provides a comprehensive, systematic methodology for reviewing code quality, correctness, security, performance, and maintainability across any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"code review" skill** — a comprehensive, systematic methodology for reviewing code quality, correctness, security, performance, and maintainability across any web project I create in this project and future projects. It must cover:
 
    - **Correctness & logic** — identifying race conditions, off-by-one errors, null/undefined handling, edge cases, incorrect state transitions, type mismatches, unhandled promises, floating-point precision issues
    - **Security review** — injection vulnerabilities (SQL, XSS, command injection), auth/authz bypasses, insecure dependencies, secrets in code, insecure crypto usage, missing input validation, CORS misconfigurations, OWASP Top 10 coverage
@@ -101,16 +101,16 @@
 
    the skill should reflect modern 2025-2026 code review standards — not just linting checklists but deep structural and logical analysis that catches bugs automated tools miss.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that code review skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 6
 
-1) i need you to download a "bug fix & debugging skill" that provides a systematic, root-cause-driven methodology for diagnosing and fixing bugs across any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"bug fix & debugging" skill** — a systematic, root-cause-driven methodology for diagnosing and fixing bugs across any web project I create in this project and future projects. It must cover:
 
    - **Debugging methodology** — reproducing the bug reliably, isolating the failing component, bisecting to find the introducing change, forming and testing hypotheses, binary search through git history
    - **Root cause analysis** — distinguishing symptoms from causes, the 5-whys technique, tracing data flow through the system, identifying the layer where the bug originates (UI, API, database, config, infra)
@@ -124,16 +124,16 @@
 
    the skill should reflect modern 2025-2026 debugging practices — not just trial-and-error but structured, evidence-driven diagnosis that finds and fixes the actual root cause.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that bug fix & debugging skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 7
 
-1) i need you to download a "testing & QA skill" that provides a comprehensive methodology for authoring tests and designing test architecture across any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"testing & QA" skill** — a comprehensive methodology for authoring tests and designing test architecture across any web project I create in this project and future projects. It must cover:
 
    - **Test strategy & architecture** — test pyramid design (unit > integration > e2e), test matrix planning, deciding what to test at each level, test isolation principles, test data management, test database strategies, parallel vs sequential execution
    - **Unit testing** — test structure (arrange/act/assert), testing pure functions vs side-effectful code, dependency injection for testability, testing async code, testing error paths, parameterized tests, property-based testing, snapshot testing (when to use and when to avoid)
@@ -148,16 +148,16 @@
 
    the skill should reflect modern 2025-2026 testing practices — not just writing tests but designing a test architecture that catches regressions early, runs fast in CI, and provides confidence to ship.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that testing & QA skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 8
 
-1) i need you to download a "deployment & DevOps skill" that provides a comprehensive methodology for deploying, hosting, and managing infrastructure for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"deployment & DevOps" skill** — a comprehensive methodology for deploying, hosting, and managing infrastructure for any web project I create in this project and future projects. It must cover:
 
    - **CI/CD pipeline design** — pipeline stages (lint → test → build → deploy), GitHub Actions/GitLab CI configuration, build caching strategies, monorepo vs polyrepo CI, deployment previews (Vercel preview deployments, Netlify deploy previews), automated rollback on failure, branch protection rules, environment-based deployment gating
    - **Infrastructure as code** — Terraform/Pulumi resource management, defining cloud resources declaratively, state management, drift detection, modular infrastructure, environment-specific configurations, secrets in IaC (SOPS, Vault)
@@ -171,16 +171,16 @@
 
    the skill should reflect modern 2025-2026 DevOps practices — infrastructure as code, GitOps, progressive delivery, and observability-first operations. not manual deployments or click-ops.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that deployment & DevOps skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 9
 
-1) i need you to download a "security audit skill" that provides a comprehensive methodology for auditing and hardening the security of any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"security audit" skill** — a comprehensive methodology for auditing and hardening the security of any web project I create in this project and future projects. It must cover:
 
    - **OWASP Top 10 deep-dive** — broken access control, cryptographic failures, injection, insecure design, security misconfiguration, vulnerable components, auth failures, software/data integrity failures, logging/monitoring failures, SSRF — for each: detection methods, prevention patterns, testing approaches
    - **Authentication security** — password storage (bcrypt/argon2, never MD5/SHA1), session management, JWT security (algorithm confusion, token leakage, short TTL, refresh rotation), OAuth 2.0 security best practices (PKCE, state parameter, redirect URI validation), MFA implementation, brute force protection
@@ -195,16 +195,16 @@
 
    the skill should reflect modern 2025-2026 security practices — shift-left security, defense in depth, and automated security testing in CI. not just a checklist but a systematic audit methodology that finds real vulnerabilities.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that security audit skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 10
 
-1) i need you to download a "performance optimization skill" that provides a comprehensive methodology for profiling, analyzing, and optimizing the performance of any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"performance optimization" skill** — a comprehensive methodology for profiling, analyzing, and optimizing the performance of any web project I create in this project and future projects. It must cover:
 
    - **Frontend profiling** — Lighthouse auditing (Performance, Best Practices, SEO scores), Chrome DevTools Performance tab (flame charts, main thread analysis, layout thrashing), WebPageTest analysis (waterfall, filmstrip, first byte, start render), Core Web Vitals measurement (LCP, INP, CLS), RUM (Real User Monitoring) with web-vitals library
    - **Bundle optimization** — bundle analysis (webpack-bundle-analyzer, source-map-explorer), tree-shaking verification, code splitting strategies (route-based, component-based), dynamic imports, removing unused dependencies, analyzing transitive dependencies, polyfill management, module federation
@@ -218,16 +218,16 @@
 
    the skill should reflect modern 2025-2026 performance practices — Core Web Vitals as the north star, RUM data over synthetic tests, and optimization driven by real user impact not theoretical gains.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that performance optimization skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 11
 
-1) i need you to download an "accessibility (a11y) skill" that provides a comprehensive methodology for designing, implementing, and testing accessible web experiences for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download an **"accessibility (a11y)" skill** — a comprehensive methodology for designing, implementing, and testing accessible web experiences for any website I create in this project and future projects. It must cover:
 
    - **WCAG 2.2 compliance** — Level A, AA, and AAA criteria breakdown, perceivable (text alternatives, captions, contrast, resize), operable (keyboard access, no time limits, no seizures), understandable (readable, predictable, input assistance), robust (compatible with assistive technologies), conformance evaluation methodology
    - **Screen reader testing** — NVDA (Windows), VoiceOver (macOS/iOS), JAWS (Windows), TalkBack (Android), testing with screen reader workflow, common screen reader patterns, ARIA live regions for dynamic content, testing forms with screen readers, testing navigation patterns, reading order verification
@@ -242,16 +242,16 @@
 
    the skill should reflect modern 2025-2026 accessibility practices — WCAG 2.2 as the baseline, automated testing in CI combined with manual testing, and inclusive design as a philosophy not a checklist.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that accessibility (a11y) skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 12
 
-1) i need you to download a "content & UX writing skill" that provides a comprehensive methodology for writing website copy, microcopy, and content design for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"content & UX writing" skill** — a comprehensive methodology for writing website copy, microcopy, and content design for any website I create in this project and future projects. It must cover:
 
    - **Brand voice & tone** — defining brand voice attributes (e.g., authoritative but warm, professional but not stiff), tone variation by context (landing page vs error message vs onboarding), voice consistency across pages, voice do's and don'ts, creating a voice chart, adapting tone for different audiences
    - **Website copywriting** — homepage copy (value proposition, sub-headline, supporting copy), about page copy (story, mission, team), service/product page copy (benefits over features, social proof, objection handling), landing page copy (above the fold, below the fold, CTA), pricing page copy (plan descriptions, FAQ, comparison), blog/article copywriting
@@ -266,16 +266,16 @@
 
    the skill should reflect modern 2025-2026 content design practices — content as a first-class design material, voice consistency, and writing that serves the user's intent not the company's ego.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that content & UX writing skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 13
 
-1) i need you to download a "design system & component library skill" that provides a comprehensive methodology for building, documenting, and maintaining design systems and component libraries for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"design system & component library" skill** — a comprehensive methodology for building, documenting, and maintaining design systems and component libraries for any web project I create in this project and future projects. It must cover:
 
    - **Design token architecture** — token taxonomy (primitive/alias/component tokens), color tokens (background, text, border, action, feedback), typography tokens (font family, size, weight, line height, letter spacing), spacing tokens (scale, padding, margin, gap), radius tokens, shadow tokens, motion tokens (duration, easing), z-index tokens, token naming conventions, token transformation pipelines (Style Dictionary, w3c design tokens spec)
    - **Component API design** — prop design principles (explicit, composable, predictable), variant patterns (CVA, class-variance-authority), compound components, slot patterns, render props vs context, controlled vs uncontrolled components, forwardRef patterns, polymorphic components (as prop), component composition over configuration, default prop strategies
@@ -288,16 +288,16 @@
 
    the skill should reflect modern 2025-2026 design system practices — w3c design tokens standard, headless component patterns, automated visual regression, and design-to-code synchronization.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that design system & component library skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 14
 
-1) i need you to download an "analytics & tracking skill" that provides a comprehensive methodology for implementing analytics, tracking, and measurement infrastructure for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download an **"analytics & tracking" skill** — a comprehensive methodology for implementing analytics, tracking, and measurement infrastructure for any web project I create in this project and future projects. It must cover:
 
    - **Analytics architecture** — data layer design (event names, properties, user properties), analytics SDK selection (Google Analytics 4, Plausible, Umami, PostHog, Mixpanel), server-side vs client-side tracking, event taxonomy, naming conventions, tracking plan documentation, analytics governance
    - **Event tracking** — pageview tracking for SPAs (route change tracking), custom event tracking (clicks, form submissions, video plays, file downloads), scroll depth tracking, engagement time tracking, outbound link tracking, file download tracking, search tracking, ecommerce tracking (view_item, add_to_cart, begin_checkout, purchase)
@@ -310,16 +310,16 @@
 
    the skill should reflect modern 2025-2026 analytics practices — privacy-first tracking, server-side tagging, product analytics, and measurement that drives decisions not vanity metrics.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that analytics & tracking skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 15
 
-1) i need you to download an "internationalization (i18n) & localization skill" that provides a comprehensive methodology for building multi-language, multi-region web applications for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download an **"internationalization (i18n) & localization" skill** — a comprehensive methodology for building multi-language, multi-region web applications for any website I create in this project and future projects. It must cover:
 
    - **i18n architecture** — translation file structure (JSON, YAML, ICU MessageFormat), translation key naming conventions, namespace organization, lazy-loading translations, translation caching, SSR/SSG considerations for i18n, framework-specific i18n setup (next-intl, react-i18next, i18next, FormatJS)
    - **Locale routing** — URL strategies (subdomain vs path prefix vs query param vs TLD), locale detection (Accept-Language header, geo-IP, cookie, user preference), locale switching without page reload, canonical URLs per locale, hreflang annotations, sitemap per locale, SEO considerations for multi-language
@@ -332,16 +332,16 @@
 
    the skill should reflect modern 2025-2026 i18n practices — ICU MessageFormat, CSS logical properties, framework-native i18n, and pseudo-localization in CI.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that internationalization (i18n) & localization skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 16
 
-1) i need you to download a "database design & optimization skill" that provides a comprehensive methodology for designing, optimizing, and managing databases for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"database design & optimization" skill** — a comprehensive methodology for designing, optimizing, and managing databases for any web project I create in this project and future projects. It must cover:
 
    - **Schema design** — entity identification and relationship modeling, normalization (1NF, 2NF, 3NF, BCNF) and when to denormalize, primary key strategies (surrogate vs natural, UUID vs auto-increment vs ULID), foreign key design, junction tables for many-to-many, soft delete patterns, audit columns (created_at, updated_at, deleted_at), enum vs lookup table, JSON/JSONB column usage patterns
    - **Indexing strategy** — B-tree vs hash vs GIN vs GiST vs BRIN index types, composite index design (column order matters), partial indexes (WHERE clause), covering indexes (INCLUDE), expression indexes, index-only scans, avoiding over-indexing, index maintenance and bloat, monitoring index usage, EXPLAIN ANALYZE interpretation
@@ -354,16 +354,16 @@
 
    the skill should reflect modern 2025-2026 database practices — schema-first design, expand-contract migrations, EXPLAIN-driven optimization, and scaling strategies chosen based on measured evidence not premature optimization.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that database design & optimization skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 17
 
-1) i need you to download a "migration & refactoring skill" that provides a comprehensive methodology for safely migrating, upgrading, and refactoring codebases for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"migration & refactoring" skill** — a comprehensive methodology for safely migrating, upgrading, and refactoring codebases for any web project I create in this project and future projects. It must cover:
 
    - **Refactoring methodology** — identifying code smells (long methods, large classes, feature envy, data clumps, primitive obsession, shotgun surgery), refactoring patterns (extract method, extract class, move method, inline function, rename, replace conditional with polymorphism), safe refactoring steps (small changes, test before and after, one refactoring at a time), refactoring without tests (characterization tests, golden master)
    - **Framework upgrades** — upgrade path planning (reading migration guides, assessing breaking changes), incremental upgrade strategies, using codemods for automated migrations, compatibility shims during transition, testing across versions, rollback plan, upgrading major versions step by step, dealing with deprecated APIs
@@ -377,16 +377,16 @@
 
    the skill should reflect modern 2025-2026 migration practices — strangler fig pattern, expand-contract migrations, codemod automation, and risk-managed incremental changes over big-bang rewrites.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that migration & refactoring skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 18
 
-1) i need you to download an "animation & motion design skill" that provides a comprehensive methodology for designing, implementing, and orchestrating web animations and motion for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download an **"animation & motion design" skill** — a comprehensive methodology for designing, implementing, and orchestrating web animations and motion for any website I create in this project and future projects. It must cover:
 
    - **Animation libraries** — Motion/Framer Motion (declarative animations, layout animations, AnimatePresence), GSAP (timeline, ScrollTrigger, Flip, SplitText), Lottie (After Effects to web, dotLottie), Anime.js, Auto-Animate, when to use which library, library-free CSS-only animations
    - **Scroll-driven animations** — CSS scroll-driven animations (animation-timeline: scroll(), view()), Intersection Observer API for scroll-triggered reveals, ScrollTrigger patterns (pin, scrub, snap), parallax done right (transform-based, not background-position), scroll-linked progress indicators, sticky scroll storytelling
@@ -401,16 +401,16 @@
 
    the skill should reflect modern 2025-2026 animation practices — View Transitions API, scroll-driven CSS animations, physics-based motion, and motion as communication not decoration.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that animation & motion design skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 19
 
-1) i need you to download a "media optimization skill" that provides a comprehensive methodology for optimizing images, video, and audio for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"media optimization" skill** — a comprehensive methodology for optimizing images, video, and audio for any website I create in this project and future projects. It must cover:
 
    - **Image formats** — AVIF (best compression, 30-70% smaller than JPEG, wide browser support), WebP (universal fallback, good compression), JPEG XL (next-gen, progressive), JPEG (universal fallback), PNG (lossless, transparency), SVG (vectors, icons, logos), format selection matrix by content type, animated image formats (AVIF animated, animated WebP vs GIF)
    - **Responsive images** — srcset and sizes attributes, art direction with <picture> and <source>, density descriptors (1x, 2x, 3x), width descriptors, breakpoint-based image switching, mobile-first image sizing, avoiding oversized images on mobile, CSS image-set()
@@ -424,16 +424,16 @@
 
    the skill should reflect modern 2025-2026 media practices — AVIF-first, adaptive streaming, image CDN pipelines, and Core Web Vitals-driven optimization.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that media optimization skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 20
 
-1) i need you to download a "state management & data fetching skill" that provides a comprehensive methodology for managing application state and data fetching for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"state management & data fetching" skill** — a comprehensive methodology for managing application state and data fetching for any web project I create in this project and future projects. It must cover:
 
    - **State categorization** — server state (cached data from APIs, needs sync, single source of truth is the server), client state (UI state, form state, toggle state, lives in browser), URL state (filters, pagination, modal open, shareable), persistent state (localStorage, IndexedDB, cookies), ephemeral state (toasts, hover, focus), deriving the right category for each piece of state
    - **Server state management** — React Query/TanStack Query (queries, mutations, invalidation, optimistic updates, prefetching, infinite queries, paginated queries, parallel queries, dependent queries, cache keys, stale time vs cache time, background refetch), SWR (simpler alternative, revalidation strategies), Apollo Client cache (normalized cache, cache policies, fetch policies), URQL, Relay
@@ -448,16 +448,16 @@
 
    the skill should reflect modern 2025-2026 state management practices — server state separated from client state, URL as source of truth, state machines for complex flows, and React Server Components changing the state management landscape.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that state management & data fetching skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 21
 
-1) i need you to download a "PWA & offline-first skill" that provides a comprehensive methodology for building progressive web apps and offline-capable web applications for any kind of website that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"PWA & offline-first" skill** — a comprehensive methodology for building progressive web apps and offline-capable web applications for any website I create in this project and future projects. It must cover:
 
    - **Service workers** — service worker lifecycle (install, activate, fetch, message), registration strategies, update flow (skipWaiting, clients.claim), service worker debugging (Chrome DevTools Application tab), workbox integration (precache, runtime cache, strategies), service worker scope, multiple service workers, service worker unregistration
    - **Caching strategies** — cache-first (for static assets), network-first (for fresh content), stale-while-revalidate (best of both), network-only (for non-cacheable), cache-only (offline fallback), offline fallback pages, cache expiration (max entries, max age), cache versioning and cleanup, range request caching (video/audio)
@@ -472,16 +472,16 @@
 
    the skill should reflect modern 2025-2026 PWA practices — workbox for service worker management, local-first architecture, push notifications, and app store deployment via PWA.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that PWA & offline-first skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 22
 
-1) i need you to download a "payment & commerce integration skill" that provides a comprehensive methodology for integrating payments, subscriptions, and e-commerce functionality for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"payment & commerce integration" skill** — a comprehensive methodology for integrating payments, subscriptions, and e-commerce functionality for any web project I create in this project and future projects. It must cover:
 
    - **Payment gateways** — Stripe (Payment Intents, Checkout Sessions, Elements, Payment Element, embedded checkout), PayPal, Adyen, Braintree, Razorpay, selection criteria (fees, geography, features, ease of integration), multi-gateway routing, marketplace payments (Stripe Connect, split payments)
    - **Checkout flow design** — one-page vs multi-step checkout, guest checkout, express checkout (Apple Pay, Google Pay, Link, PayPal), cart to checkout handoff, shipping calculation, tax calculation, discount code application, order summary, order confirmation, abandoned cart recovery
@@ -496,16 +496,16 @@
 
    the skill should reflect modern 2025-2026 payment practices — Stripe-first integration, Payment Intents API, SCA/3D Secure compliance, webhook-driven architecture, and subscription billing best practices.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that payment & commerce integration skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 23
 
-1) i need you to download a "file handling & media uploads skill" that provides a comprehensive methodology for implementing file uploads, processing, and management for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"file handling & media uploads" skill** — a comprehensive methodology for implementing file uploads, processing, and management for any web project I create in this project and future projects. It must cover:
 
    - **Upload UI/UX** — drag-and-drop zones (dragenter, dragover, dragleave, drop events), file picker integration, paste-to-upload (clipboard API), multiple file selection, file preview (images, videos, PDFs), upload progress UI, upload queue management, cancel/retry uploads, file size display, upload error states
    - **Upload strategies** — direct to server (multipart/form-data), direct to S3/cloud storage (presigned URLs), upload via CDN edge, chunked uploads (split large files, parallel chunks, resumable), tus protocol (resumable uploads), upload orchestration, bandwidth management
@@ -519,16 +519,16 @@
 
    the skill should reflect modern 2025-2026 file handling practices — presigned URL uploads, client-side preprocessing, chunked/resumable uploads, and CDN-backed delivery.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that file handling & media uploads skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 24
 
-1) i need you to download a "search & filtering architecture skill" that provides a comprehensive methodology for implementing search, filtering, and discovery for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"search & filtering architecture" skill** — a comprehensive methodology for implementing search, filtering, and discovery for any web project I create in this project and future projects. It must cover:
 
    - **Client-side search** — Fuse.js (fuzzy search), FlexSearch (fast full-text), Minisearch, Lunr.js, when to use client-side search (small datasets, offline, instant), index building and updating, search performance in the browser, Web Worker for search offloading
    - **Server-side search** — PostgreSQL Full-Text Search (tsvector, tsquery, GIN indexes, to_tsvector, plainto_tsquery, websearch_to_tsquery, ranking with ts_rank), Meilisearch (typo tolerance, instant search, easy setup), Typesense (fast, typo-tolerant, faceted), Elasticsearch/OpenSearch (enterprise-grade, complex queries), Algolia (hosted, fast, expensive), selection criteria
@@ -542,16 +542,16 @@
 
    the skill should reflect modern 2025-2026 search practices — Meilisearch/Typesense for self-hosted, Algolia for hosted, PostgreSQL FTS for simple needs, and command palette patterns for app search.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that search & filtering architecture skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 25
 
-1) i need you to download a "real-time & WebSockets skill" that provides a comprehensive methodology for implementing real-time features, live updates, and collaborative experiences for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"real-time & WebSockets" skill** — a comprehensive methodology for implementing real-time features, live updates, and collaborative experiences for any web project I create in this project and future projects. It must cover:
 
    - **WebSocket implementation** — WebSocket API (client-side, connection lifecycle, reconnection), ws/uWebSockets.js (Node.js server), WebSocket libraries (Socket.io, Soketi, Centrifugo), connection authentication (query params, headers, cookies, JWT), connection management, room/channel management, broadcasting patterns
    - **Server-Sent Events (SSE)** — EventSource API, SSE vs WebSockets (unidirectional vs bidirectional, auto-reconnect, HTTP/2 multiplexing), SSE for notifications and live updates, SSE with POST (fetch-based streaming), SSE scaling considerations, SSE in Next.js/Edge
@@ -566,16 +566,16 @@
 
    the skill should reflect modern 2025-2026 real-time practices — SSE for simple push, WebSockets for bidirectional, CRDTs for collaboration, Redis pub/sub for scaling, and graceful degradation strategies.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that real-time & WebSockets skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 26
 
-1) i need you to download a "git workflow & version control skill" that provides a comprehensive methodology for managing version control, branching, and collaboration for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"git workflow & version control" skill** — a comprehensive methodology for managing version control, branching, and collaboration for any web project I create in this project and future projects. It must cover:
 
    - **Branching strategies** — trunk-based development (main branch, short-lived feature branches, frequent merges), GitHub Flow (feature branch → PR → merge to main), GitFlow (develop, feature, release, hotfix branches), release flow, choosing a strategy by team size and release cadence, branch naming conventions
    - **Commit conventions** — Conventional Commits (feat, fix, docs, style, refactor, perf, test, chore, scope), commit message structure (type, scope, description, body, footer), breaking change notation, automated changelog generation from commits, commit hooks for validation, squash vs merge commits
@@ -590,16 +590,16 @@
 
    the skill should reflect modern 2025-2026 git practices — trunk-based development, Conventional Commits, squash merges, stacked PRs, and automated release pipelines.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that git workflow & version control skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 27
 
-1) i need you to download a "build tools & bundlers skill" that provides a comprehensive methodology for configuring, optimizing, and managing build tooling for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"build tools & bundlers" skill** — a comprehensive methodology for configuring, optimizing, and managing build tooling for any web project I create in this project and future projects. It must cover:
 
    - **Bundler selection** — Vite (fast dev server, esbuild + Rollup, modern default), Turbopack (Next.js native, Rust-based), webpack (legacy, maximum ecosystem), esbuild (extremely fast, limited), Rollup (library builds, tree-shaking), Parcel (zero-config), Rspack (webpack-compatible, Rust-based), choosing by project type
    - **Vite configuration** — vite.config.ts structure, plugins (React, Vue, Svelte, legacy browser support, PWA, compression), resolve aliases, environment variables (import.meta.env), build options (target, minify, sourcemap, chunkSizeWarningLimit), server options (port, proxy, HTTPS), CSS preprocessing, asset handling
@@ -614,16 +614,16 @@
 
    the skill should reflect modern 2025-2026 build practices — Vite as default, Turbopack for Next.js, esbuild for speed, Rollup for libraries, and remote caching for monorepos.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that build tools & bundlers skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 28
 
-1) i need you to download a "type safety & TypeScript skill" that provides a comprehensive methodology for designing type-safe applications and leveraging TypeScript for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"type safety & TypeScript" skill** — a comprehensive methodology for designing type-safe applications and leveraging TypeScript for any web project I create in this project and future projects. It must cover:
 
    - **TypeScript configuration** — tsconfig.json structure, strict mode (strict, noUncheckedIndexedAccess, exactOptionalPropertyTypes), module resolution (node, bundler, nodenext), target and lib settings, path aliases, project references for monorepos, composite projects, incremental builds, declaration files
    - **Type design patterns** — discriminated unions (tagged unions for state modeling), branded types (nominal typing in TypeScript), result types (Result<T, E> instead of throwing), option types (Option<T> for null safety), type branding for IDs (UserId, OrderId), phantom types, newtype pattern
@@ -638,16 +638,16 @@
 
    the skill should reflect modern 2025-2026 TypeScript practices — strict mode everywhere, Zod for runtime validation, tRPC for end-to-end type safety, branded types for domain modeling, and discriminated unions for state.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that type safety & TypeScript skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 29
 
-1) i need you to download a "CSS architecture skill" that provides a comprehensive methodology for designing, organizing, and maintaining CSS at scale for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"CSS architecture" skill** — a comprehensive methodology for designing, organizing, and maintaining CSS at scale for any web project I create in this project and future projects. It must cover:
 
    - **CSS methodologies** — BEM (Block Element Modifier, naming conventions), CUBE CSS (composition, utility, block, exception), ITCSS (inverted triangle, specificity ordering), Atomic CSS (Tailwind approach), CSS Modules (scoped by default), when to use each, mixing methodologies
    - **Tailwind CSS architecture** — Tailwind configuration (theme extension, custom colors, fonts, spacing), Tailwind v4 (CSS-first config, @theme directive, native CSS variables), utility composition patterns, @apply usage (and when to avoid), custom utilities, variant design, plugin development, Tailwind in monorepos, performance considerations
@@ -661,16 +661,16 @@
 
    the skill should reflect modern 2025-2026 CSS practices — Tailwind v4, native CSS features (container queries, @layer, :has(), nesting), zero-runtime CSS-in-JS, and CSS custom properties as the theming foundation.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that CSS architecture skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 30
 
-1) i need you to download a "developer experience (DX) skill" that provides a comprehensive methodology for setting up and optimizing the development experience for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"developer experience (DX)" skill** — a comprehensive methodology for setting up and optimizing the development experience for any web project I create in this project and future projects. It must cover:
 
    - **Project scaffolding** — project initialization (create-next-app, create-vite, degit templates), project structure conventions, boilerplate elimination, starter templates, monorepo scaffolding, shared config packages (eslint config, prettier config, tsconfig), scaffolding tools (Plop, Hygen)
    - **Development server** — dev server configuration (Vite, Next.js, webpack dev server), fast refresh/HMR setup, dev server proxy (API proxy to backend), HTTPS in development (mkcert), dev server performance, multi-app dev server (monorepo), dev server debugging
@@ -685,16 +685,16 @@
 
    the skill should reflect modern 2025-2026 DX practices — Biome as fast all-in-one, ESLint flat config, Husky + lint-staged, one-command onboarding, and AI-assisted development.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that developer experience (DX) skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 31
 
-1) i need you to download a "documentation skill" that provides a comprehensive methodology for writing, organizing, and maintaining documentation for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"documentation" skill** — a comprehensive methodology for writing, organizing, and maintaining documentation for any web project I create in this project and future projects. It must cover:
 
    - **Code documentation** — JSDoc/TSDoc comments (functions, classes, interfaces, types), documentation for public APIs vs internal code, when to document vs when code is self-documenting, inline comment guidelines (explain why, not what), TODO/FIXME conventions, deprecated annotations, @see, @example, @param, @returns
    - **API documentation** — OpenAPI/Swagger specification (paths, components, security, examples), Swagger UI / Redoc for interactive docs, API documentation generation from code (tsoa, nestia), API changelog, API versioning in docs, request/response examples, error code documentation, authentication documentation
@@ -709,16 +709,16 @@
 
    the skill should reflect modern 2025-2026 documentation practices — docs as code, MDX for interactivity, Mermaid for diagrams, ADRs for decisions, and automated changelog generation.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that documentation skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 32
 
-1) i need you to download a "monorepo management skill" that provides a comprehensive methodology for setting up, organizing, and managing monorepos for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"monorepo management" skill** — a comprehensive methodology for setting up, organizing, and managing monorepos for any web project I create in this project and future projects. It must cover:
 
    - **Monorepo tools** — Turborepo (task orchestration, caching, remote cache, daemon), Nx (generators, executors, affected commands, project graph), pnpm workspaces (workspace protocol, overrides, patching), Lerna (legacy, maintenance mode), choosing a tool by project complexity, Turborepo vs Nx tradeoffs
    - **Workspace structure** — apps/ and packages/ structure, shared packages (ui, config, utils, types, eslint-config, tsconfig), app-specific packages, package naming conventions, package versioning strategy (fixed, independent), internal package imports (workspace:*), public vs private packages
@@ -733,16 +733,16 @@
 
    the skill should reflect modern 2025-2026 monorepo practices — Turborepo + pnpm workspaces as default, changesets for publishing, remote caching for speed, and strict package boundaries.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that monorepo management skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 33
 
-1) i need you to download an "email & notifications skill" that provides a comprehensive methodology for implementing transactional emails, notifications, and communication flows for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download an **"email & notifications" skill** — a comprehensive methodology for implementing transactional emails, notifications, and communication flows for any web project I create in this project and future projects. It must cover:
 
    - **Transactional email** — email service selection (Resend, SendGrid, Postmark, AWS SES, Mailgun), email sending patterns (server-side only, never client), email templates (React Email, MJML, Handlebars, Plain text + HTML), email testing (Ethereal Email, Mailtrap, Resend preview), email queue (background jobs for sending), batch sending, rate limiting
    - **Email template design** — React Email (component-based, reusable, type-safe), MJML (responsive email markup), HTML email constraints (table-based layout, inline CSS, client compatibility), plain text alternative (always include), email dark mode, email accessibility, responsive email design, email preview text, email images (hosted, not embedded)
@@ -757,16 +757,16 @@
 
    the skill should reflect modern 2025-2026 email & notification practices — Resend + React Email for transactional, Web Push for browser notifications, user-controlled notification preferences, and deliverability-first email strategy.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that email & notifications skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.
 
 
 # Prompt 34
 
-1) i need you to download a "web scraping & data collection skill" that provides a comprehensive methodology for ethically and efficiently collecting data from the web for any kind of web project that i'm going to make in this project and upcoming projects. this skill should cover:
+1) Download a **"web scraping & data collection" skill** — a comprehensive methodology for ethically and efficiently collecting data from the web for any web project I create in this project and future projects. It must cover:
 
    - **Ethical scraping** — respecting robots.txt, terms of service review, rate limiting (be a good citizen, 1 req/sec default), identifying yourself (User-Agent), avoiding server overload, public vs private data, legal considerations (CFAA, GDPR), scraping vs API usage (always prefer API), ethical scraping guidelines
    - **Scraping tools** — Playwright/Puppeteer (for JavaScript-rendered pages, headless browser), Cheerio (HTML parsing, jQuery-like API, fast), jsdom (DOM simulation in Node.js), HTTP clients (fetch, axios, got, undici), scraping frameworks (Crawlee, Scrapy-equivalent for Node), when to use headless vs static parsing
@@ -781,8 +781,8 @@
 
    the skill should reflect modern 2025-2026 scraping practices — Playwright for JS-rendered pages, Crawlee for orchestration, ethical rate limiting, API-first approach, and queue-based scraping architecture.
 
-2) after downloading that skill i want you to make it a global skill so i can use that skill across projects without having to redownload 
+2) Once downloaded, install it as a **global skill** so it is available across all projects without re-downloading.
 
-3) and then i want you to turn that skill into a global workflow so i can use that workflow across projects without having to redownload 
+3) Convert that skill into a **global workflow** so it can be invoked across projects without re-downloading.
 
-4) and lastly add a global rule to follow that web scraping & data collection skill and workflow whenever we start a new project so i can use that workflow, skill across projects without having to redo them all again
+4) Finally, add a **global rule** that mandates following this skill and workflow whenever we start a new project — making the entire setup persistent and reusable across all future projects.

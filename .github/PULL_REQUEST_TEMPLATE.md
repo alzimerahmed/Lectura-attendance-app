@@ -54,7 +54,7 @@
 - [ ] I kept the GPL v3 copyright header notice intact in all modified `.kt` files:
   ```kotlin
   /*
-   * AttendSmartly (2026)
+   * Lumera (2026)
    * © alzimer ahmed — github.com/alzimerahmed84
    * Licensed under the GNU GPL v3 License
    * Do not remove or alter this notice. - Per GPL-3.0 Section 4 & Section 5

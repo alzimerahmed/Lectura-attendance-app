@@ -8,13 +8,13 @@ Turns `docs/idea.md` into an executable, phased plan. Each phase is shippable on
 
 **Goal:** make the codebase safe to build on. Everything else depends on this.
 
-1. **Rebrand AttendSmartly → Lumera**
-   - App name in `strings.xml`, `AndroidManifest.xml` label, notification channel names, `AttendSmartlyApplication` → `LumeraApplication`, `MainActivity` internals, notification IDs/work names.
-   - Package rename `com.alzimerahmed.attendsmartly` → `com.alzimerahmed.lumera` (dirs, `build.gradle.kts` namespace/applicationId, manifest intent actions, proguard rules).
+1. **Rebrand Lumera → Lumera**
+   - App name in `strings.xml`, `AndroidManifest.xml` label, notification channel names, `LumeraApplication` → `LumeraApplication`, `MainActivity` internals, notification IDs/work names.
+   - Package rename `com.alzimerahmed.lumera` → `com.alzimerahmed.lumera` (dirs, `build.gradle.kts` namespace/applicationId, manifest intent actions, proguard rules).
    - Rewrite `README.md` (remove dead links/badges to deleted docs, new name, new screenshots placeholder).
    - Keep DB name/scheme stable or add Room migration to avoid wiping user data on update.
 2. **Verify build & tests**: `gradlew.bat assembleDebug` + `gradlew.bat test` (package rename from the ownership transfer has never been build-verified).
-3. **Introduce Hilt** (replaces manual DI in `AttendSmartlyApplication` + ViewModel factories in `NavGraph`).
+3. **Introduce Hilt** (replaces manual DI in `LumeraApplication` + ViewModel factories in `NavGraph`).
    - Add `ksp` + `hilt-navigation-compose`; annotate App, add `@HiltViewModel` to all 8 ViewModels, delete factory lambdas.
 4. **Split the god repository** into `SubjectRepository`, `TimetableRepository`, `AttendanceRepository`, `HolidayRepository` (thin facades over existing DAOs; ViewModels inject what they need).
 5. **CI**: update `.github/workflows/android.yml` to run `assembleDebug` + `test` on PRs; add signing secrets wiring for release builds (keystore base64 from `C:\Users\shadd\keystores`).

@@ -87,7 +87,7 @@ Legend: ✅ already in Lumera · 🔶 partial · ❌ missing
 ## 8. Technical / Architecture Improvements
 
 - **DI**: replace manual DI with Hilt (testability, less boilerplate in NavGraph factories).
-- **Repository layering**: split the god-repository (`AttendSmartlyRepository`, 600+ lines) into Subject/Timetable/Attendance/Holiday repositories.
+- **Repository layering**: split the god-repository (`LumeraRepository`, 600+ lines) into Subject/Timetable/Attendance/Holiday repositories.
 - **Use case layer**: extract `AttendanceCalculator` interactions into use cases (CalculateBunkBudget, ProjectAttendance).
 - **Testing**: unit tests exist for calculator/export — add DAO tests, ViewModel tests (Turbine), and Compose UI tests.
 - **Crash reporting**: optional privacy-friendly telemetry (ACRA or Firebase Crashlytics, opt-in).

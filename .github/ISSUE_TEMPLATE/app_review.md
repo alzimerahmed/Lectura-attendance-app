@@ -1,12 +1,12 @@
 ---
 name: App Feedback & Review
-about: Share general feedback or usability suggestions for AttendSmartly
+about: Share general feedback or usability suggestions for Lumera
 title: '[FEEDBACK] '
 labels: 'feedback'
 assignees: 'alzimerahmed84'
 ---
 
-## What do you like about AttendSmartly?
+## What do you like about Lumera?
 Share what feature or experience works well for you.
 
 ## What could be improved?

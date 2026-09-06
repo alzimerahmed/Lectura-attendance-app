@@ -1,13 +1,15 @@
-research and implement this task, 
-1) invoke agents and subagents from .devin in the backround to check the results of the edits continuously
+Research and implement the task below.
 
-2) invoke all the skills and workflows available in .devin to achieve the best results possible for the tasks listed below
+1) Run agents and sub-agents from `.devin` in the background to continuously verify the results of each edit as work progresses.
 
-3) understand our workflow prompt system from .devin
+2) Leverage all relevant skills and workflows defined in `.devin` to achieve the highest-quality outcome for the tasks listed below.
 
-4) understand our project structure and codebase and design systems
+3) First, understand our workflow and prompt system as defined in `.devin`.
 
-5) always follow the rules and the instructions given through the prompt and research and by agents
+4) Study the project structure, codebase, and design system before making any changes.
 
-6) create/read project.md and agent.md to understand our past implementations and update them when at the end of the implementation.
-and put all the documentation .md files inside a docs folder
+5) Strictly follow all rules and instructions — those given in the prompt, derived from research, and issued by agents.
+
+6) Read `project.md` and `agent.md` to understand past implementations; update both at the end of the implementation.
+
+7) Place all documentation (`.md`) files inside the `docs` folder.

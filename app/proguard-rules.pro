@@ -1,8 +1,8 @@
-# AttendSmartly (2026)
+# Lumera (2026)
 # © alzimer ahmed — github.com/alzimerahmed84
 # Licensed under the GNU GPL v3 License
 #
-# ProGuard & R8 Optimization and Obfuscation Rules for AttendSmartly
+# ProGuard & R8 Optimization and Obfuscation Rules for Lumera
 
 # ==============================================================================
 # 1. Stack Traces & Annotations Preservation
@@ -14,25 +14,25 @@
 # ==============================================================================
 # 2. Application Entry Points & Components
 # ==============================================================================
--keep class com.alzimerahmed.attendsmartly.AttendSmartlyApplication { *; }
--keep class com.alzimerahmed.attendsmartly.MainActivity { *; }
--keep class com.alzimerahmed.attendsmartly.receiver.** { *; }
+-keep class com.alzimerahmed.lumera.LumeraApplication { *; }
+-keep class com.alzimerahmed.lumera.MainActivity { *; }
+-keep class com.alzimerahmed.lumera.receiver.** { *; }
 
 # ==============================================================================
 # 3. Room Database & Local Entities
 # ==============================================================================
 -keep class * extends androidx.room.RoomDatabase
--keep class com.alzimerahmed.attendsmartly.data.local.dao.** { *; }
--keep class com.alzimerahmed.attendsmartly.data.local.entity.** { *; }
+-keep class com.alzimerahmed.lumera.data.local.dao.** { *; }
+-keep class com.alzimerahmed.lumera.data.local.entity.** { *; }
 -dontwarn androidx.room.paging.**
 
 # ==============================================================================
 # 4. Domain Models & JSON Serialization (Gson / Moshi)
 # ==============================================================================
--keep class com.alzimerahmed.attendsmartly.domain.model.** { *; }
--keep class com.alzimerahmed.attendsmartly.util.AttendSmartlyBackup { *; }
--keep class com.alzimerahmed.attendsmartly.util.TimetableSharePackage { *; }
--keep class com.alzimerahmed.attendsmartly.util.ExportImportUtils { *; }
+-keep class com.alzimerahmed.lumera.domain.model.** { *; }
+-keep class com.alzimerahmed.lumera.util.LumeraBackup { *; }
+-keep class com.alzimerahmed.lumera.util.TimetableSharePackage { *; }
+-keep class com.alzimerahmed.lumera.util.ExportImportUtils { *; }
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
     private static final java.io.ObjectStreamField[] serialPersistentFields;
@@ -64,7 +64,7 @@
 -keep class * extends androidx.work.ListenableWorker {
     public <init>(android.content.Context, androidx.work.WorkerParameters);
 }
--keep class com.alzimerahmed.attendsmartly.worker.** { *; }
+-keep class com.alzimerahmed.lumera.worker.** { *; }
 
 # ==============================================================================
 # 6. Retrofit & OkHttp Networking
@@ -77,7 +77,7 @@
 -dontwarn okhttp3.**
 -dontwarn okio.**
 -keep class retrofit2.** { *; }
--keep class com.alzimerahmed.attendsmartly.data.remote.** { *; }
+-keep class com.alzimerahmed.lumera.data.remote.** { *; }
 
 # ==============================================================================
 # 7. Jetpack Compose UI

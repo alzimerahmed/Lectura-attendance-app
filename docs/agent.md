@@ -8,7 +8,7 @@
 
 ## Conventions
 - File headers: `© alzimer ahmed — github.com/alzimerahmed84` GPL-3.0 notice in every .kt
-- Package: `com.alzimerahmed.attendsmartly` (rename to Lumera pending)
+- Package: `com.alzimerahmed.lumera` (rename to Lumera pending)
 - Never commit: *.jks, *.keystore, keystore.properties, .env
 - Keystore lives at C:\Users\shadd\keystores\ (Lumera-release.jks, alias `lumera`)
 

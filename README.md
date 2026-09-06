@@ -1,8 +1,8 @@
-# AttendSmartly - College Attendance Tracker & Bunk Calculator
+# Lumera - College Attendance Tracker & Bunk Calculator
 
 <div align="center">
 
-<img src="helper/AttendSmartly.png" alt="AttendSmartly Logo" width="150" height="150" />
+<img src="helper/Lumera.png" alt="Lumera Logo" width="150" height="150" />
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg?logo=kotlin)](https://kotlinlang.org/)
@@ -36,9 +36,9 @@
 
 ## 💡 Overview
 
-**AttendSmartly** is a clean, modern, student-focused Android attendance-tracking application built natively with **Kotlin**, **Jetpack Compose**, **Material Design 3**, and **Room Database**.
+**Lumera** is a clean, modern, student-focused Android attendance-tracking application built natively with **Kotlin**, **Jetpack Compose**, **Material Design 3**, and **Room Database**.
 
-College academic rules often demand a mandatory minimum attendance threshold (e.g. 75% or 80%) with complex multi-hour class structures where practical labs count differently than single lectures. AttendSmartly takes the guesswork out of attendance tracking by calculating your exact **Safe Bunks** and **Recovery Classes** in real time.
+College academic rules often demand a mandatory minimum attendance threshold (e.g. 75% or 80%) with complex multi-hour class structures where practical labs count differently than single lectures. Lumera takes the guesswork out of attendance tracking by calculating your exact **Safe Bunks** and **Recovery Classes** in real time.
 
 ---
 
@@ -82,7 +82,7 @@ College academic rules often demand a mandatory minimum attendance threshold (e.
 
 ## 🧮 Bunk & Recovery Math
 
-AttendSmartly uses precise mathematical formulas to compute attendance metrics:
+Lumera uses precise mathematical formulas to compute attendance metrics:
 
 ### Overall Attendance Percentage
 $$
@@ -137,8 +137,8 @@ $$
 ## 🚀 Getting Started & Installation
 
 ### Option 1: Download APK
-1. Go to the [Releases](https://github.com/alzimerahmed84/AttendSmartly/releases) page.
-2. Download the latest `AttendSmartly-Release.apk`.
+1. Go to the [Releases](https://github.com/alzimerahmed84/Lumera/releases) page.
+2. Download the latest `Lumera-Release.apk`.
 3. Install the APK on your Android device (Android 7.0 / API 24 or higher).
 
 ### Option 2: Build from Source
@@ -149,8 +149,8 @@ Requirements:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/alzimerahmed84/AttendSmartly.git
-cd AttendSmartly
+git clone https://github.com/alzimerahmed84/Lumera.git
+cd Lumera
 
 # 2. Build Debug APK
 ./gradlew assembleDebug
@@ -164,9 +164,9 @@ cd AttendSmartly
 ## ❓ Frequently Asked Questions (FAQ)
 
 <details>
-<summary><b>1. Is AttendSmartly completely free and offline?</b></summary>
+<summary><b>1. Is Lumera completely free and offline?</b></summary>
 <br/>
-Yes! AttendSmartly is 100% free, open-source software licensed under the GNU GPL v3. All attendance logs, timetables, and settings are stored locally on your device in an encrypted Room Database. No data is sent to external tracking servers.
+Yes! Lumera is 100% free, open-source software licensed under the GNU GPL v3. All attendance logs, timetables, and settings are stored locally on your device in an encrypted Room Database. No data is sent to external tracking servers.
 </details>
 
 <details>
@@ -191,7 +191,7 @@ In the Timetable screen, select the OCR Scanner option and upload an image of yo
 
 ## 🔒 Privacy & Open Source
 
-AttendSmartly values your privacy. It contains **zero telemetry**, **zero analytics SDKs**, and **zero hidden tracking**. All student data remains exclusively on your device.
+Lumera values your privacy. It contains **zero telemetry**, **zero analytics SDKs**, and **zero hidden tracking**. All student data remains exclusively on your device.
 
 Read our full policies:
 - [Privacy Policy](PRIVACY.md)
@@ -206,7 +206,7 @@ Read our full policies:
 Designed and developed with ❤️ by **alzimer ahmed** ([@alzimerahmed84](https://github.com/alzimerahmed84)).
 
 ```text
-AttendSmartly (2026)
+Lumera (2026)
 © alzimer ahmed — github.com/alzimerahmed84
 Licensed under the GNU General Public License v3.0 (GPL-3.0).
 ```

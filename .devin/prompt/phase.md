@@ -1,16 +1,17 @@
-1) i want you to clone this repo without any ties to it's original repo and clone it at the root of this project instead of a seperate folder.
+1) Clone the source repository into the root of this project — not a subfolder — and fully detach it from its origin (remove all remote links, git history references, and upstream configuration so it stands alone).
 
-2) now i want complete ownership of this project repo so remove or replace every credentials with mine
-name - alzimer ahmed
-email - alzimerahmed84@gmail.com
+2) Transfer complete ownership of the repository to me. Replace every credential, author attribution, and ownership reference throughout the codebase with my details:
+   - Name: Alzimer Ahmed
+   - Email: alzimerahmed84@gmail.com
+   Perform a full sweep of the repo (READMEs, package manifests, license files, config files, CI workflows, docs, and commit metadata) to locate all ownership info and replace it.
 
-do a full sweep of this repo to find all the ownership info's and replace them with mine
+3) Analyze the codebase thoroughly: map the project structure, understand the core functionality, and document the existing feature set before making any changes.
 
-3) now i want you to analyze the code and understand the project structure and functionality and it's features
+4) Clean up the repository — remove all unused files, dead code, and redundant folders that add no value to the project.
 
-4) now i want you to remove any useless files and folders
+5) Research best-in-class apps in the same domain and compile a competitive analysis into `idea.md`, covering: quality-of-life improvements, missing features, functional enhancements, design systems, UX patterns, and layout/architecture improvements we could adopt.
 
-5) now i want you to research a top of the line similar app and list all the qol, features, functionalities, enhancements, design systems, improvements, layout architecture etc... we can improve on in an idea.md file
+6) Based on `idea.md`, produce a comprehensive, phased plan of action detailing how each improvement and enhancement will be implemented, with clear scope and ordering.
 
-6) now i want you to create a comprehensive plan of action to implement all the improvements and enhancements we discussed in the idea.md file
+7) Execute the plan phase by phase. After completing each phase, run a code review using the agents defined in `.devin` before moving on to the next one. 
 

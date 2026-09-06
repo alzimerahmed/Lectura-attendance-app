@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-  namespace = "com.alzimerahmed.attendsmartly"
+  namespace = "com.alzimerahmed.lumera"
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    applicationId = "com.alzimerahmed.attendsmartly"
+    applicationId = "com.alzimerahmed.lumera"
     minSdk = 24
     targetSdk = 36
     versionCode = 3
@@ -24,7 +24,7 @@ android {
 
   signingConfigs {
     val storePass = System.getenv("STORE_PASSWORD")?.takeIf { it.isNotBlank() }
-    val keystorePath = System.getenv("KEYSTORE_PATH")?.takeIf { it.isNotBlank() } ?: "${rootDir}/AttendSmartly.jks"
+    val keystorePath = System.getenv("KEYSTORE_PATH")?.takeIf { it.isNotBlank() } ?: "${rootDir}/Lumera.jks"
     val keystoreFile = file(keystorePath)
     val aliasEnv = System.getenv("KEY_ALIAS")?.takeIf { it.isNotBlank() } ?: "upload"
     val keyPassEnv = System.getenv("KEY_PASSWORD")?.takeIf { it.isNotBlank() } ?: storePass

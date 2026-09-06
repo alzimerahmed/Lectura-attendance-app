@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea or new capability for AttendSmartly
+about: Suggest an idea or new capability for Lumera
 title: '[FEATURE] '
 labels: 'enhancement'
 assignees: 'alzimerahmed84'

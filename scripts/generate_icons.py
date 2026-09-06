@@ -1,8 +1,8 @@
 import os
 from PIL import Image, ImageDraw
 
-logo_path = r"A:\AttendSmartly\helper\AttendSmartly.png"
-res_dir = r"A:\AttendSmartly\app\src\main\res"
+logo_path = r"A:\Lumera\helper\Lumera.png"
+res_dir = r"A:\Lumera\app\src\main\res"
 
 # Densities configuration
 # Format: (suffix, adaptive_size, adaptive_logo_size, legacy_size, legacy_logo_size, round_logo_size)

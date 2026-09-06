@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Create a report to help us improve AttendSmartly
+about: Create a report to help us improve Lumera
 title: '[BUG] '
 labels: 'bug'
 assignees: 'alzimerahmed84'
@@ -25,7 +25,7 @@ If applicable, add screenshots or screen recordings to help explain your problem
 ## Device & Environment
 - **Device**: [e.g. Google Pixel 7, Samsung Galaxy S23]
 - **Android Version**: [e.g. Android 13 (API 33)]
-- **AttendSmartly Version**: [e.g. 1.0.0]
+- **Lumera Version**: [e.g. 1.0.0]
 
 ## Additional Context
 Add any other context or log snippets about the problem here.

@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "AttendSmartly"
+rootProject.name = "Lumera"
 
 include(":app")
