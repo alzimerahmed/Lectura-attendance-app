@@ -1,6 +1,6 @@
 /*
  * Lumera (2026)
- * © alzimer ahmed — github.com/alzimerahmed84
+ * © alzimer ahmed — github.com/alzimerahmed
  * Licensed under the GNU GPL v3 License
  * Do not remove or alter this notice. - Per GPL-3.0 Section 4 & Section 5
  */
@@ -127,8 +127,12 @@ fun SettingsScreen(
     var apiKeyVisible by remember { mutableStateOf(false) }
 
     var showClearDataConfirm by remember { mutableStateOf(false) }
+    var showRestoreAutoBackupDialog by remember { mutableStateOf(false) }
     var showCustomColorDialog by remember { mutableStateOf(false) }
     var activeDatePickerTarget by remember { mutableStateOf<String?>(null) } // "START" or "END"
+
+    val autoBackups = viewModel.autoBackups.value
+    LaunchedEffect(Unit) { viewModel.refreshAutoBackups(context) }
 
     val isCheckingUpdate by viewModel.isCheckingUpdate.collectAsState()
     var updateReleaseInfo by remember { mutableStateOf<GitHubReleaseInfo?>(null) }
@@ -1283,6 +1287,51 @@ fun SettingsScreen(
 
                                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
 
+                                        // Automatic local backups
+                                        Text("Automatic Backups", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+                                        Text(
+                                            "Daily local snapshots (last 7 kept). Also included in Android cloud backup.",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                        Text(
+                                            "Last backup: ${viewModel.lastBackupDisplay.value}",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+
+                                        Button(
+                                            onClick = {
+                                                viewModel.runAutoBackupNow(context) { success ->
+                                                    Toast.makeText(
+                                                        context,
+                                                        if (success) "Backup created" else "Backup failed",
+                                                        Toast.LENGTH_SHORT
+                                                    ).show()
+                                                }
+                                            },
+                                            modifier = Modifier.fillMaxWidth(),
+                                            shape = RoundedCornerShape(12.dp)
+                                        ) {
+                                            Icon(Icons.Default.Backup, null, modifier = Modifier.size(18.dp))
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Text("Back Up Now", fontWeight = FontWeight.SemiBold)
+                                        }
+
+                                        if (autoBackups.isNotEmpty()) {
+                                            OutlinedButton(
+                                                onClick = { showRestoreAutoBackupDialog = true },
+                                                modifier = Modifier.fillMaxWidth(),
+                                                shape = RoundedCornerShape(12.dp)
+                                            ) {
+                                                Icon(Icons.Default.History, null, modifier = Modifier.size(18.dp))
+                                                Spacer(modifier = Modifier.width(8.dp))
+                                                Text("Restore Auto-Backup", fontWeight = FontWeight.SemiBold)
+                                            }
+                                        }
+
+                                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
+
                                         // Reset Data options
                                         Text("Reset Data", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
 
@@ -1421,7 +1470,7 @@ fun SettingsScreen(
 
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/releases"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/releases"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 modifier = Modifier.fillMaxWidth(),
@@ -1431,6 +1480,28 @@ fun SettingsScreen(
                                                 Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(18.dp))
                                                 Spacer(modifier = Modifier.width(8.dp))
                                                 Text("Releases & Changelog", fontWeight = FontWeight.SemiBold)
+                                            }
+
+                                            OutlinedButton(
+                                                onClick = {
+                                                    try {
+                                                        val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                                                            type = "text/plain"
+                                                            putExtra(
+                                                                Intent.EXTRA_TEXT,
+                                                                "Lumera - track classes, plan bunks, attend smartly. Check it out: https://github.com/alzimerahmed/Lectura-attendance-app"
+                                                            )
+                                                        }
+                                                        context.startActivity(Intent.createChooser(sendIntent, "Share Lumera"))
+                                                    } catch (_: Exception) {}
+                                                },
+                                                modifier = Modifier.fillMaxWidth(),
+                                                shape = RoundedCornerShape(12.dp),
+                                                contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp)
+                                            ) {
+                                                Icon(Icons.Default.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+                                                Spacer(modifier = Modifier.width(8.dp))
+                                                Text("Share Lumera", fontWeight = FontWeight.SemiBold)
                                             }
                                         }
 
@@ -1445,7 +1516,7 @@ fun SettingsScreen(
                                         ) {
                                             FilledTonalButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 modifier = Modifier.weight(1f).testTag("settings_github_btn"),
@@ -1518,7 +1589,7 @@ fun SettingsScreen(
                                         ) {
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/issues/new?template=app_review.md"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/issues/new?template=app_review.md"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 shape = RoundedCornerShape(10.dp),
@@ -1531,7 +1602,7 @@ fun SettingsScreen(
 
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/issues/new?template=bug_report.md"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/issues/new?template=bug_report.md"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 shape = RoundedCornerShape(10.dp),
@@ -1544,7 +1615,7 @@ fun SettingsScreen(
 
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/issues/new?template=feature_request.md"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/issues/new?template=feature_request.md"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 shape = RoundedCornerShape(10.dp),
@@ -1557,7 +1628,7 @@ fun SettingsScreen(
 
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/blob/main/LICENSE"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/blob/main/LICENSE"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 shape = RoundedCornerShape(10.dp),
@@ -1570,7 +1641,7 @@ fun SettingsScreen(
 
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/blob/main/PRIVACY.md"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/blob/main/PRIVACY.md"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 shape = RoundedCornerShape(10.dp),
@@ -1583,7 +1654,7 @@ fun SettingsScreen(
 
                                             OutlinedButton(
                                                 onClick = {
-                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed84/Lumera/blob/main/TERMS.md"))
+                                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/alzimerahmed/Lectura-attendance-app/blob/main/TERMS.md"))
                                                     try { context.startActivity(intent) } catch (_: Exception) {}
                                                 },
                                                 shape = RoundedCornerShape(10.dp),
@@ -1625,6 +1696,56 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showClearDataConfirm = false }) { Text("Cancel") }
+            }
+        )
+    }
+
+    if (showRestoreAutoBackupDialog) {
+        AlertDialog(
+            onDismissRequest = { showRestoreAutoBackupDialog = false },
+            title = { Text("Restore Auto-Backup") },
+            text = {
+                Column {
+                    Text(
+                        "Pick a snapshot to restore. Existing data is kept; matching records are merged.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(modifier = Modifier.height(12.dp))
+                    autoBackups.take(7).forEach { backup ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    viewModel.restoreAutoBackup(context, backup) { success, message ->
+                                        Toast.makeText(
+                                            context,
+                                            if (success) "Backup restored" else message,
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                    showRestoreAutoBackupDialog = false
+                                }
+                                .padding(vertical = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(Icons.Default.History, null, modifier = Modifier.size(18.dp))
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Column {
+                                Text(backup.displayTime, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                                Text(
+                                    "${"%.1f".format(backup.sizeBytes / 1024.0)} KB",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
+                }
+            },
+            confirmButton = {},
+            dismissButton = {
+                TextButton(onClick = { showRestoreAutoBackupDialog = false }) { Text("Cancel") }
             }
         )
     }

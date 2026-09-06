@@ -27,7 +27,9 @@ import com.alzimerahmed.lumera.ui.screens.analytics.AnalyticsScreen
 import com.alzimerahmed.lumera.ui.screens.analytics.AnalyticsViewModel
 import com.alzimerahmed.lumera.ui.screens.history.AttendanceHistoryScreen
 import com.alzimerahmed.lumera.ui.screens.history.HistoryViewModel
+import com.alzimerahmed.lumera.ui.screens.planner.PlannerViewModel
 import com.alzimerahmed.lumera.ui.screens.home.HomeScreen
+import com.alzimerahmed.lumera.ui.screens.planner.PlannerScreen
 import com.alzimerahmed.lumera.ui.screens.home.HomeViewModel
 import com.alzimerahmed.lumera.ui.screens.onboarding.OnboardingScreen
 import com.alzimerahmed.lumera.ui.screens.onboarding.SetupScreen
@@ -207,6 +209,11 @@ fun NavGraph(
                         navController.navigate(Screen.SubjectDetail.createRoute(subId))
                     }
                 )
+            }
+
+            composable(Screen.Planner.route) {
+                val plannerVm: PlannerViewModel = hiltViewModel()
+                PlannerScreen(viewModel = plannerVm)
             }
 
             composable(Screen.History.route) {

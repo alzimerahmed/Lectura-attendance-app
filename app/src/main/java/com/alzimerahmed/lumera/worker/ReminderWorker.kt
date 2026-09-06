@@ -146,6 +146,21 @@ class ReminderWorker(
                     }
                 }
             }
+            // Assignment due-soon notifications (due within 24h, not done)
+            val tomorrowIso = LocalDate.now().plusDays(1).format(java.time.format.DateTimeFormatter.ISO_LOCAL_DATE)
+            val dueSoon = app.repository.allAssignments.first()
+                .filter { !it.isDone && it.dueDateIso >= todayIso && it.dueDateIso <= tomorrowIso }
+            for (assignment in dueSoon) {
+                val subject = repository.getSubjectById(assignment.subjectId)
+                NotificationHelper.showAssignmentDueNotification(
+                    context = context,
+                    assignmentId = assignment.id,
+                    subjectName = subject?.name ?: "",
+                    title = assignment.title,
+                    dueDateIso = assignment.dueDateIso
+                )
+            }
+
             Result.success()
         } catch (e: Exception) {
             e.printStackTrace()

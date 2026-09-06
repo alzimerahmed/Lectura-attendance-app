@@ -295,12 +295,12 @@ private fun PickImageStep(
                     } else {
                         Surface(
                             shape = RoundedCornerShape(8.dp),
-                            color = MaterialTheme.colorScheme.errorContainer
+                            color = MaterialTheme.colorScheme.surfaceVariant
                         ) {
                             Text(
-                                "Key Required for Custom Scan",
+                                "Offline Scan Mode",
                                 style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onErrorContainer,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
                             )
                         }
@@ -308,7 +308,7 @@ private fun PickImageStep(
                 }
 
                 Text(
-                    text = "Add your free Gemini API key for scanning custom images. Free to create on Google AI Studio.",
+                    text = "Optional: add a free Gemini API key for AI-enhanced scanning. Without a key, scanning runs fully offline on your device.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

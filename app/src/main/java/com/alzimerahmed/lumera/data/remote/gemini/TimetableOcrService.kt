@@ -63,7 +63,8 @@ class TimetableOcrService {
         }
 
         if (!isApiKeyValid) {
-            throw IllegalStateException("Gemini API key is required for AI timetable scanning. Please enter your Gemini API key in Settings or in the Scanner dialog.")
+            // Tier 1: on-device ML Kit OCR fallback (free, no key needed)
+            return@withContext OnDeviceTimetableOcr.extract(bitmap)
         }
 
         // Dynamically fetch models available for this API key from Gemini REST API
@@ -506,4 +507,3 @@ private data class GeminiModelInfo(
     val name: String? = null,
     val supportedGenerationMethods: List<String>? = null
 )
-

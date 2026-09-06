@@ -23,3 +23,7 @@ Lumera_base64.txt
 Lumera-release.jks
 *.jks
 keystore.properties
+
+docs/
+.devin/
+.switchboard/

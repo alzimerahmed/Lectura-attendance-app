@@ -7,7 +7,9 @@
 
 package com.alzimerahmed.lumera.data.repository
 
+import com.alzimerahmed.lumera.data.local.dao.AssignmentDao
 import com.alzimerahmed.lumera.data.local.dao.AttendanceDao
+import com.alzimerahmed.lumera.data.local.dao.ExamDao
 import com.alzimerahmed.lumera.data.local.dao.HolidayDao
 import com.alzimerahmed.lumera.data.local.dao.SubjectDao
 import com.alzimerahmed.lumera.data.local.dao.TimetableDao
@@ -23,7 +25,9 @@ class LumeraRepository(
     private val subjectDao: SubjectDao,
     private val timetableDao: TimetableDao,
     private val attendanceDao: AttendanceDao,
-    private val holidayDao: HolidayDao
+    private val holidayDao: HolidayDao,
+    private val assignmentDao: AssignmentDao,
+    private val examDao: ExamDao
 ) {
     // Subjects
     val activeSubjects: Flow<List<SubjectEntity>> = subjectDao.getActiveSubjects()
@@ -634,4 +638,32 @@ class LumeraRepository(
             "Successfully marked $unitsMarkedPresent class unit(s) as Present across $sessionsCreatedOrUpdated past session(s) (Excluding today)."
         )
     }
+
+    // Assignments
+    val allAssignments: Flow<List<com.alzimerahmed.lumera.data.local.entity.AssignmentEntity>> = assignmentDao.getAllAssignments()
+
+    fun getAssignmentsForSubject(subjectId: Long) = assignmentDao.getAssignmentsForSubject(subjectId)
+
+    suspend fun insertAssignment(assignment: com.alzimerahmed.lumera.data.local.entity.AssignmentEntity): Long =
+        assignmentDao.insertAssignment(assignment)
+
+    suspend fun updateAssignment(assignment: com.alzimerahmed.lumera.data.local.entity.AssignmentEntity) =
+        assignmentDao.updateAssignment(assignment)
+
+    suspend fun deleteAssignment(assignment: com.alzimerahmed.lumera.data.local.entity.AssignmentEntity) =
+        assignmentDao.deleteAssignment(assignment)
+
+    // Exams
+    val allExams: Flow<List<com.alzimerahmed.lumera.data.local.entity.ExamEntity>> = examDao.getAllExams()
+
+    fun getExamsForSubject(subjectId: Long) = examDao.getExamsForSubject(subjectId)
+
+    suspend fun insertExam(exam: com.alzimerahmed.lumera.data.local.entity.ExamEntity): Long =
+        examDao.insertExam(exam)
+
+    suspend fun updateExam(exam: com.alzimerahmed.lumera.data.local.entity.ExamEntity) =
+        examDao.updateExam(exam)
+
+    suspend fun deleteExam(exam: com.alzimerahmed.lumera.data.local.entity.ExamEntity) =
+        examDao.deleteExam(exam)
 }

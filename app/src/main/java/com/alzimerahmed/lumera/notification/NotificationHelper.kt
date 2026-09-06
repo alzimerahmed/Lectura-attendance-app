@@ -122,8 +122,36 @@ object NotificationHelper {
         manager.notify(notificationId, builder.build())
     }
 
-    /**
-     * Ongoing notification shown while a class is in progress. Stays until the user
+    /** Notification for an assignment due within 24 hours. */
+    fun showAssignmentDueNotification(context: Context, assignmentId: Long, subjectName: String, title: String, dueDateIso: String) {
+        createNotificationChannel(context)
+
+        val openAppIntent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        val openAppPendingIntent = PendingIntent.getActivity(
+            context,
+            (assignmentId + 9000).toInt(),
+            openAppIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val contentText = "$subjectName: $title is due ${dueDateIso}. Don't forget to submit it."
+
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle("Assignment Due Soon")
+            .setContentText(contentText)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setContentIntent(openAppPendingIntent)
+
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manager.notify((assignmentId + 9000).toInt(), builder.build())
+    }
+
+    /** Ongoing notification shown while a class is in progress. Stays until the user
      * marks attendance (actions auto-cancel it) — ClassTrack-style persistent marking.
      */
     fun showOngoingClassNotification(

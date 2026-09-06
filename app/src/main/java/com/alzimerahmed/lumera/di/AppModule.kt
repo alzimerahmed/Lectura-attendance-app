@@ -39,6 +39,8 @@ object AppModule {
             subjectDao = database.subjectDao(),
             timetableDao = database.timetableDao(),
             attendanceDao = database.attendanceDao(),
-            holidayDao = database.holidayDao()
+            holidayDao = database.holidayDao(),
+            assignmentDao = database.assignmentDao(),
+            examDao = database.examDao()
         )
 }

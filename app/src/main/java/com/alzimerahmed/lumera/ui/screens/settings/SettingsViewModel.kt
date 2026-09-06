@@ -9,13 +9,17 @@ package com.alzimerahmed.lumera.ui.screens.settings
 
 import android.content.Context
 import android.net.Uri
+import java.io.File
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.alzimerahmed.lumera.data.preferences.UserPreferences
 import com.alzimerahmed.lumera.data.preferences.UserPreferencesRepository
 import com.alzimerahmed.lumera.data.repository.LumeraRepository
+import com.alzimerahmed.lumera.util.AutoBackupManager
 import com.alzimerahmed.lumera.util.DemoDataGenerator
 import com.alzimerahmed.lumera.util.ExportImportUtils
 import kotlinx.coroutines.flow.SharingStarted
@@ -102,6 +106,43 @@ class SettingsViewModel @Inject constructor(
     fun updateGeminiApiKey(apiKey: String) {
         viewModelScope.launch {
             preferencesRepository.updateGeminiApiKey(apiKey)
+        }
+    }
+
+    // ---- Automatic local backups ----
+
+    data class AutoBackupInfo(val file: File, val displayTime: String, val sizeBytes: Long)
+
+    private val _autoBackups = mutableStateOf<List<AutoBackupInfo>>(emptyList())
+    val autoBackups: State<List<AutoBackupInfo>> = _autoBackups
+
+    private val _lastBackupDisplay = mutableStateOf("Never")
+    val lastBackupDisplay: State<String> = _lastBackupDisplay
+
+    fun refreshAutoBackups(context: Context) {
+        _autoBackups.value = AutoBackupManager.listBackups(context).map { file ->
+            AutoBackupInfo(
+                file = file,
+                displayTime = AutoBackupManager.formatBackupTime(context, file.lastModified()),
+                sizeBytes = file.length()
+            )
+        }
+        _lastBackupDisplay.value =
+            AutoBackupManager.formatBackupTime(context, AutoBackupManager.lastBackupAt(context))
+    }
+
+    fun runAutoBackupNow(context: Context, onResult: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            val success = AutoBackupManager.performAutoBackup(context, repository)
+            refreshAutoBackups(context)
+            onResult(success)
+        }
+    }
+
+    fun restoreAutoBackup(context: Context, backup: AutoBackupInfo, onResult: (Boolean, String) -> Unit) {
+        viewModelScope.launch {
+            val result = AutoBackupManager.restoreFromBackup(context, repository, backup.file)
+            onResult(result.first, result.second)
         }
     }
 

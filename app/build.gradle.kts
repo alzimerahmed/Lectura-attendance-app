@@ -106,6 +106,7 @@ dependencies {
   implementation(libs.hilt.android)
   implementation(libs.androidx.hilt.navigation.compose)
   implementation(libs.androidx.glance.appwidget)
+  implementation(libs.mlkit.text.recognition)
   ksp(libs.hilt.compiler)
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.work.runtime.ktx)

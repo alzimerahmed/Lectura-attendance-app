@@ -37,6 +37,7 @@ import com.alzimerahmed.lumera.ui.components.AttendanceProgressCard
 import com.alzimerahmed.lumera.ui.components.ClassCard
 import com.alzimerahmed.lumera.ui.components.EditUnitBottomSheet
 import com.alzimerahmed.lumera.ui.components.RescheduleClassDialog
+import com.alzimerahmed.lumera.ui.components.RiskProgressRing
 import com.alzimerahmed.lumera.util.DateUtils
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -367,8 +368,14 @@ fun HomeScreen(
                                 ) {
                                     Row(
                                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
-                                        verticalAlignment = Alignment.CenterVertically
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                                     ) {
+                                        RiskProgressRing(
+                                            percentage = risk.percentage,
+                                            target = risk.target,
+                                            size = 40.dp
+                                        )
                                         Text(
                                             text = risk.name,
                                             style = MaterialTheme.typography.titleSmall,
@@ -456,6 +463,69 @@ fun HomeScreen(
                         items = todaySchedules,
                         key = { "${it.timetableEntry.id}_${it.session?.id ?: 0}" }
                     ) { item ->
+                        val canMark = isSelectedDateInSemester
+                        val dismissState = rememberSwipeToDismissBoxState(
+                            confirmValueChange = { value ->
+                                if (!canMark) return@rememberSwipeToDismissBoxState false
+                                when (value) {
+                                    SwipeToDismissBoxValue.StartToEnd -> {
+                                        viewModel.markPresent(item)
+                                        scope.launch {
+                                            val result = snackbarHostState.showSnackbar(
+                                                message = "${item.subject.name} marked present",
+                                                actionLabel = "Undo"
+                                            )
+                                            if (result == SnackbarResult.ActionPerformed) viewModel.undoLastAction()
+                                        }
+                                        false
+                                    }
+                                    SwipeToDismissBoxValue.EndToStart -> {
+                                        viewModel.markAbsent(item)
+                                        scope.launch {
+                                            val result = snackbarHostState.showSnackbar(
+                                                message = "${item.subject.name} marked absent",
+                                                actionLabel = "Undo"
+                                            )
+                                            if (result == SnackbarResult.ActionPerformed) viewModel.undoLastAction()
+                                        }
+                                        false
+                                    }
+                                    else -> false
+                                }
+                            }
+                        )
+                        SwipeToDismissBox(
+                            state = dismissState,
+                            enableDismissFromStartToEnd = canMark,
+                            enableDismissFromEndToStart = canMark,
+                            backgroundContent = {
+                                val (color, icon, alignment) = when (dismissState.dismissDirection) {
+                                    SwipeToDismissBoxValue.StartToEnd -> Triple(
+                                        MaterialTheme.colorScheme.primaryContainer,
+                                        Icons.Default.Check,
+                                        Alignment.CenterStart
+                                    )
+                                    SwipeToDismissBoxValue.EndToStart -> Triple(
+                                        MaterialTheme.colorScheme.errorContainer,
+                                        Icons.Default.Close,
+                                        Alignment.CenterEnd
+                                    )
+                                    else -> Triple(Color.Transparent, null, Alignment.Center)
+                                }
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(16.dp))
+                                        .background(color)
+                                        .padding(horizontal = 24.dp),
+                                    contentAlignment = alignment
+                                ) {
+                                    if (icon != null) {
+                                        Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.onSurface)
+                                    }
+                                }
+                            }
+                        ) {
                         ClassCard(
                             timetableEntry = item.timetableEntry,
                             subject = item.subject,
@@ -519,6 +589,7 @@ fun HomeScreen(
                                 }
                             }
                         )
+                        }
                     }
                 }
             }

@@ -37,11 +37,14 @@ class LumeraApplication : Application() {
             subjectDao = database.subjectDao(),
             timetableDao = database.timetableDao(),
             attendanceDao = database.attendanceDao(),
-            holidayDao = database.holidayDao()
+            holidayDao = database.holidayDao(),
+            assignmentDao = database.assignmentDao(),
+            examDao = database.examDao()
         )
 
         NotificationHelper.createNotificationChannel(this)
         ReminderWorker.schedulePeriodicReminderCheck(this)
         com.alzimerahmed.lumera.widget.LumeraWidgetReceiver.scheduleWidgetRefresh(this)
+        com.alzimerahmed.lumera.worker.AutoBackupWorker.scheduleAutoBackup(this)
     }
 }

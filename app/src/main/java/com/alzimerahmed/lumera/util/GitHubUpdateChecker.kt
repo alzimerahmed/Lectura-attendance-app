@@ -35,7 +35,7 @@ data class GitHubReleaseInfo(
 
 object GitHubUpdateChecker {
 
-    private const val GITHUB_API_LATEST_RELEASE = "https://api.github.com/repos/alzimerahmed84/Lumera/releases/latest"
+    private const val GITHUB_API_LATEST_RELEASE = "https://api.github.com/repos/alzimerahmed/Lectura-attendance-app/releases/latest"
 
     private val httpClient = OkHttpClient.Builder()
         .connectTimeout(12, TimeUnit.SECONDS)
@@ -63,7 +63,7 @@ object GitHubUpdateChecker {
                 val tagName = json.get("tag_name")?.asString ?: ""
                 val name = json.get("name")?.asString ?: tagName
                 val body = json.get("body")?.asString ?: ""
-                val htmlUrl = json.get("html_url")?.asString ?: "https://github.com/alzimerahmed84/Lumera/releases"
+                val htmlUrl = json.get("html_url")?.asString ?: "https://github.com/alzimerahmed/Lectura-attendance-app/releases"
                 val publishedAt = json.get("published_at")?.asString ?: ""
 
                 var apkAsset: GitHubAsset? = null

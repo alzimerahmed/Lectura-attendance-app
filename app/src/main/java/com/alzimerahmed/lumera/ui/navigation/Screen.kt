@@ -18,6 +18,7 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector?
     object Timetable : Screen("timetable", "Timetable", Icons.Default.CalendarToday)
     object Subjects : Screen("subjects", "Subjects", Icons.Default.Book)
     object Analytics : Screen("analytics", "Analytics", Icons.Default.BarChart)
+    object Planner : Screen("planner", "Planner", Icons.Default.Assignment)
     object History : Screen("history", "History", Icons.Default.History)
     object Settings : Screen("settings", "Settings", Icons.Default.Settings)
     object SubjectDetail : Screen("subject_detail/{subjectId}", "Subject Detail") {
@@ -25,6 +26,6 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector?
     }
 
     companion object {
-        val bottomNavItems = listOf(Home, Timetable, Subjects, Analytics)
+        val bottomNavItems = listOf(Home, Timetable, Subjects, Analytics, Planner)
     }
 }
