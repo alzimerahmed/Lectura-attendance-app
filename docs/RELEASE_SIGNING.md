@@ -1,53 +1,46 @@
-# Release Signing & Keystore Setup — AttendSmartly
+# Release Signing & Keystore Setup — Lumera
 
-This guide explains how to generate `AttendSmartly.jks`, export `AttendSmartly_base64.txt`, and configure GitHub Actions secrets for signed release builds.
+This guide explains how the release keystore is managed and how to configure GitHub Actions secrets for signed release builds.
 
 ---
 
 ## 🔒 1. Security First
 
-Never commit keystore files or passwords to GitHub. The following patterns are automatically ignored in `.gitignore`:
+Never commit keystore files or passwords to GitHub. The following patterns are ignored in `.gitignore`:
 - `*.jks`
 - `*.keystore`
-- `*_base64.txt`
+- `keystore.properties`
 
----
+The Lumera keystore lives **outside the repo**, at:
 
-## 🔑 2. How to Generate `AttendSmartly.jks`
-
-### Method A: Via Android Studio (Recommended)
-1. Open **Android Studio**.
-2. Go to **Build** -> **Generate Signed Bundle / APK...**
-3. Select **APK** and click **Next**.
-4. Under **Key store path**, click **Create new...**
-5. Set:
-   - **Key store path**: Browse to your project root `a:\AttendSmartly\AttendSmartly.jks`
-   - **Password**: Choose a secure password (e.g. `MySecurePassword123`)
-   - **Alias**: `upload` (or `attendsmartly`)
-   - **Key Password**: Same as keystore password (or choose one)
-   - **Validity**: `25` years
-   - **Certificate**: Fill in your First and Last Name (`alzimer ahmed`).
-6. Click **OK** and finish the wizard.
-
-### Method B: Via Terminal (`keytool`)
-Run this command from your terminal:
-
-```bash
-keytool -genkeypair -v -keystore AttendSmartly.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
 ```
-Follow the prompts to set your password and certificate details.
+C:\Users\shadd\keystores\Lumera-release.jks
+C:\Users\shadd\keystores\Lumera-keystore.properties
+```
+
+**Back these up.** If the keystore is lost, the app can never be updated under the same signature.
 
 ---
 
-## 📄 3. How to Generate `AttendSmartly_base64.txt`
+## 🔑 2. Keystore Details
 
-Run the included helper PowerShell script from the project root:
+| Property | Value |
+| -------- | ----- |
+| Store file | `C:\Users\shadd\keystores\Lumera-release.jks` |
+| Alias | `lumera` |
+| Algorithm | RSA 2048 |
+| Validity | 30 years (10,950 days) |
+| Certificate | `CN=alzimer ahmed, O=Lumera, EMAILADDRESS=alzimerahmed84@gmail.com` |
+
+Passwords are stored in `Lumera-keystore.properties` alongside the keystore.
+
+---
+
+## 📄 3. Generating Base64 for CI
 
 ```powershell
-.\scripts\export-keystore-base64.ps1 -KeystorePath .\AttendSmartly.jks
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Users\shadd\keystores\Lumera-release.jks")) | Set-Clipboard
 ```
-
-This generates `AttendSmartly_base64.txt` containing a single line of Base64 text encoding your keystore.
 
 ---
 
@@ -55,18 +48,18 @@ This generates `AttendSmartly_base64.txt` containing a single line of Base64 tex
 
 1. Open your repository on GitHub.
 2. Go to **Settings** -> **Secrets and variables** -> **Actions**.
-3. Click **New repository secret** and add:
+3. Add:
 
 | Secret Name | Value |
 | ----------- | ----- |
-| `ANDROID_KEYSTORE_BASE64` | Copy the entire single line from `AttendSmartly_base64.txt` |
-| `ANDROID_KEYSTORE_PASSWORD` | Password created during keystore generation |
-| `KEY_ALIAS` | `upload` (or alias chosen) |
-| `KEY_PASSWORD` | Key password |
+| `ANDROID_KEYSTORE_BASE64` | Base64 string from step 3 |
+| `ANDROID_KEYSTORE_PASSWORD` | Store password from `Lumera-keystore.properties` |
+| `KEY_ALIAS` | `lumera` |
+| `KEY_PASSWORD` | Key password from `Lumera-keystore.properties` |
 
 ---
 
 ## 🚀 5. Triggering a Signed Release Build
 
-- **Automated Tag Release**: Push a Git tag starting with `v` (e.g., `git tag v1.1.0 && git push origin v1.1.0`).
+- **Automated Tag Release**: Push a Git tag starting with `v` (e.g., `git tag v1.0.0 && git push origin v1.0.0`).
 - **Manual Build**: Go to **Actions** -> **Build Android APK** -> **Run workflow**.
