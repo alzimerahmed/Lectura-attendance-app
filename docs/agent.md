@@ -17,6 +17,7 @@
 - Tests: same command with `testDebugUnitTest`
 
 ## Session log
+- 2026-09-06: Phase 1 DONE (local, NOT pushed per user request) — commit 8b5270b: (1) live current-class hero card on Home (30s ticker, HomeViewModel.currentClass), (2) persistent in-progress notification with chronometer at class start (NotificationHelper.showOngoingClassNotification, receiver routes minutesBefore==0), (3) post-class unmarked nudge in ReminderWorker (ended >=15min + unmarked), (4) Glance home-screen widget (overall %, safe bunks, next class; LumeraWidgetReceiver + 30-min WorkManager refresh). Review fix: alarm request codes differentiated (sessionId*10+flag) so start alarm no longer overwrites reminder alarm. Build + tests green.
 - 2026-09-06: Phase 0 DONE — rebrand to Lumera (package com.alzimerahmed.lumera, all classes/assets), Hilt DI (AppModule + @HiltViewModel x7 + hiltViewModel in NavGraph, manual factory deleted), build + unit tests green, CI verified (already runs test+assemble on PR, signed release via secrets), release alias default = lumera. DEFERRED: physical repository split (cross-domain logic in LumeraRepository needs integration tests first — do as standalone refactor in Phase 2+).
 - 2026-09-06: ownership transfer, cleanup, keystore, competitor research → docs/idea.md; implementation plan → docs/IMPLEMENTATION_PLAN.md (8 phases). All docs live in docs/.
 - Grep tool unreliable here — always use PowerShell Select-String.
