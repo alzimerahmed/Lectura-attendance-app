@@ -19,3 +19,7 @@ debug.keystore
 AttendSmartly.jks
 AttendSmartly_base64.txt
 .idea/
+
+Lumera-release.jks
+*.jks
+keystore.properties
