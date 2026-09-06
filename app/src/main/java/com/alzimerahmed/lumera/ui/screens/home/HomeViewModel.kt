@@ -117,6 +117,45 @@ class HomeViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
+    /** Ticks every 30s to keep the live "current class" card fresh. */
+    private val nowTicker = flow {
+        while (true) {
+            emit(System.currentTimeMillis())
+            kotlinx.coroutines.delay(30_000L)
+        }
+    }
+
+    data class CurrentClassInfo(
+        val item: ClassScheduleItem,
+        val minutesRemaining: Long,
+        val endsAtDisplay: String
+    )
+
+    val currentClass: StateFlow<CurrentClassInfo?> = combine(todaySchedules, nowTicker) { schedules, _ ->
+        if (_selectedDateIso.value != DateUtils.todayIso()) return@combine null
+        val now = java.time.LocalTime.now()
+        val active = schedules.firstOrNull { item ->
+            try {
+                val start = java.time.LocalTime.parse(item.timetableEntry.startTime, DateUtils.timeFormatter24)
+                val end = java.time.LocalTime.parse(item.timetableEntry.endTime, DateUtils.timeFormatter24)
+                !now.isBefore(start) && now.isBefore(end)
+            } catch (_: Exception) {
+                false
+            }
+        } ?: return@combine null
+        try {
+            val end = java.time.LocalTime.parse(active.timetableEntry.endTime, DateUtils.timeFormatter24)
+            val remaining = java.time.Duration.between(now, end).toMinutes() + 1
+            CurrentClassInfo(
+                item = active,
+                minutesRemaining = remaining,
+                endsAtDisplay = DateUtils.formatTime(active.timetableEntry.endTime)
+            )
+        } catch (_: Exception) {
+            null
+        }
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+
     val isSelectedDateInSemester: StateFlow<Boolean> = combine(
         _selectedDateIso,
         userPreferences

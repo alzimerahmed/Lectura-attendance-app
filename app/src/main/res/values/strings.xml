@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lumera</string>
+    <string name="widget_description">Attendance overview and next class</string>
 </resources>

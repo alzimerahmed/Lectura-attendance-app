@@ -57,6 +57,7 @@ fun HomeScreen(
     val todaySchedules by viewModel.todaySchedules.collectAsState()
     val overallSummary by viewModel.overallSummary.collectAsState()
     val allActiveSubjects by viewModel.allActiveSubjects.collectAsState()
+    val currentClass by viewModel.currentClass.collectAsState()
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -337,6 +338,15 @@ fun HomeScreen(
                     )
                 }
 
+                // Live "class in progress" hero card
+                if (selectedDate == LocalDate.now()) {
+                    currentClass?.let { current ->
+                        item {
+                            CurrentClassCard(info = current)
+                        }
+                    }
+                }
+
                 item {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -598,5 +608,49 @@ fun HomeScreen(
             },
             onDismiss = { showAddExtraClassDialog = false }
         )
+    }
+}
+
+@Composable
+private fun CurrentClassCard(info: HomeViewModel.CurrentClassInfo) {
+    val subject = info.item.subject
+    val room = info.item.timetableEntry.roomOverride.ifBlank { subject.room }
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = MaterialTheme.colorScheme.primaryContainer,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(12.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary)
+            )
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = "Happening Now",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
+                )
+                Text(
+                    text = subject.name,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+                val roomInfo = if (room.isNotBlank()) " - $room" else ""
+                Text(
+                    text = "Ends in ${info.minutesRemaining} min at ${info.endsAtDisplay}$roomInfo",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.85f)
+                )
+            }
+        }
     }
 }

@@ -105,6 +105,7 @@ dependencies {
   implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.hilt.android)
   implementation(libs.androidx.hilt.navigation.compose)
+  implementation(libs.androidx.glance.appwidget)
   ksp(libs.hilt.compiler)
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.work.runtime.ktx)

@@ -136,18 +136,35 @@ class ReminderNotificationReceiver : BroadcastReceiver() {
                             val unitCount = intent.getIntExtra(EXTRA_UNIT_COUNT, 1)
                             val minutesBefore = intent.getIntExtra(EXTRA_MINUTES_BEFORE, 10)
 
-                            NotificationHelper.showClassReminderNotification(
-                                context = context,
-                                notificationId = notificationId,
-                                sessionId = timetableEntryId,
-                                subjectName = subjectName,
-                                startTime = startTime,
-                                room = room,
-                                teacher = teacher,
-                                durationMinutes = durationMinutes,
-                                unitCount = unitCount,
-                                minutesBefore = minutesBefore
-                            )
+                            if (minutesBefore <= 0) {
+                                // Class-start alarm: persistent in-progress notification with live chronometer
+                                val classStartMillis = System.currentTimeMillis()
+                                NotificationHelper.showOngoingClassNotification(
+                                    context = context,
+                                    notificationId = notificationId,
+                                    sessionId = timetableEntryId,
+                                    subjectName = subjectName,
+                                    startTime = startTime,
+                                    room = room,
+                                    teacher = teacher,
+                                    durationMinutes = durationMinutes,
+                                    unitCount = unitCount,
+                                    classStartMillis = classStartMillis
+                                )
+                            } else {
+                                NotificationHelper.showClassReminderNotification(
+                                    context = context,
+                                    notificationId = notificationId,
+                                    sessionId = timetableEntryId,
+                                    subjectName = subjectName,
+                                    startTime = startTime,
+                                    room = room,
+                                    teacher = teacher,
+                                    durationMinutes = durationMinutes,
+                                    unitCount = unitCount,
+                                    minutesBefore = minutesBefore
+                                )
+                            }
                         }
                     } finally {
                         pendingResult.finish()

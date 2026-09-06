@@ -10,6 +10,7 @@ package com.alzimerahmed.lumera.worker
 import android.content.Context
 import androidx.work.*
 import com.alzimerahmed.lumera.LumeraApplication
+import com.alzimerahmed.lumera.domain.model.AttendanceStatus
 import com.alzimerahmed.lumera.notification.NotificationHelper
 import com.alzimerahmed.lumera.util.DateUtils
 import kotlinx.coroutines.flow.first
@@ -106,6 +107,41 @@ class ReminderWorker(
                             durationMinutes = durationMins,
                             unitCount = entry.attendanceUnitCount,
                             minutesBefore = reminderMins
+                        )
+                    }
+                }
+
+                // Class-start alarm: persistent in-progress notification with live countdown
+                if (now.isBefore(classStartTime)) {
+                    val startDateTime = LocalDateTime.of(today, classStartTime)
+                    val startMillis = startDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                    NotificationHelper.scheduleAlarm(
+                        context = context,
+                        triggerAtMillis = startMillis,
+                        sessionId = entry.id,
+                        subjectName = subject.name,
+                        startTime = DateUtils.formatTime(entry.startTime),
+                        room = room,
+                        teacher = teacher,
+                        durationMinutes = durationMins,
+                        unitCount = entry.attendanceUnitCount,
+                        minutesBefore = 0
+                    )
+                }
+
+                // Post-class nudge: class ended >= 15 min ago and attendance still unmarked
+                val classEndTime = try { LocalTime.parse(entry.endTime, DateUtils.timeFormatter24) } catch (_: Exception) { null }
+                if (classEndTime != null && now.isAfter(classEndTime.plusMinutes(15))) {
+                    val session = repository.getSessionForTimetableAndDate(entry.id, todayIso)
+                    val units = session?.let { repository.getUnitsForSession(it.id).first() } ?: emptyList()
+                    val allMarked = units.isNotEmpty() && units.none { it.status == AttendanceStatus.UNMARKED.name }
+                    if (session != null && !allMarked) {
+                        NotificationHelper.showUnmarkedNudge(
+                            context = context,
+                            notificationId = (entry.id + 5000).toInt(),
+                            sessionId = entry.id,
+                            subjectName = subject.name,
+                            endTime = DateUtils.formatTime(entry.endTime)
                         )
                     }
                 }

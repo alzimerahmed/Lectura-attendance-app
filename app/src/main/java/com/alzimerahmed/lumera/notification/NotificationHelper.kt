@@ -122,6 +122,139 @@ object NotificationHelper {
         manager.notify(notificationId, builder.build())
     }
 
+    /**
+     * Ongoing notification shown while a class is in progress. Stays until the user
+     * marks attendance (actions auto-cancel it) — ClassTrack-style persistent marking.
+     */
+    fun showOngoingClassNotification(
+        context: Context,
+        notificationId: Int,
+        sessionId: Long,
+        subjectName: String,
+        startTime: String,
+        room: String,
+        teacher: String,
+        durationMinutes: Int,
+        unitCount: Int,
+        classStartMillis: Long
+    ) {
+        createNotificationChannel(context)
+
+        val openAppIntent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        val openAppPendingIntent = PendingIntent.getActivity(
+            context,
+            notificationId,
+            openAppIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val presentIntent = Intent(context, ReminderNotificationReceiver::class.java).apply {
+            action = ReminderNotificationReceiver.ACTION_MARK_PRESENT
+            putExtra(ReminderNotificationReceiver.EXTRA_SESSION_ID, sessionId)
+            putExtra(ReminderNotificationReceiver.EXTRA_NOTIFICATION_ID, notificationId)
+        }
+        val presentPendingIntent = PendingIntent.getBroadcast(
+            context,
+            notificationId * 10 + 1,
+            presentIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val absentIntent = Intent(context, ReminderNotificationReceiver::class.java).apply {
+            action = ReminderNotificationReceiver.ACTION_MARK_ABSENT
+            putExtra(ReminderNotificationReceiver.EXTRA_SESSION_ID, sessionId)
+            putExtra(ReminderNotificationReceiver.EXTRA_NOTIFICATION_ID, notificationId)
+        }
+        val absentPendingIntent = PendingIntent.getBroadcast(
+            context,
+            notificationId * 10 + 2,
+            absentIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val locationInfo = if (room.isNotBlank()) " in $room" else ""
+        val contentText = "$subjectName$locationInfo is in progress. Mark your attendance before it ends."
+
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle("Class Now: $subjectName")
+            .setContentText(contentText)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setOngoing(true)
+            .setOnlyAlertOnce(true)
+            .setWhen(classStartMillis)
+            .setUsesChronometer(true)
+            .setContentIntent(openAppPendingIntent)
+            .addAction(0, "Present", presentPendingIntent)
+            .addAction(0, "Absent", absentPendingIntent)
+
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manager.notify(notificationId, builder.build())
+    }
+
+    /** Nudge shown after a class ended but its attendance was never marked. */
+    fun showUnmarkedNudge(
+        context: Context,
+        notificationId: Int,
+        sessionId: Long,
+        subjectName: String,
+        endTime: String
+    ) {
+        createNotificationChannel(context)
+
+        val openAppIntent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        val openAppPendingIntent = PendingIntent.getActivity(
+            context,
+            notificationId,
+            openAppIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val presentIntent = Intent(context, ReminderNotificationReceiver::class.java).apply {
+            action = ReminderNotificationReceiver.ACTION_MARK_PRESENT
+            putExtra(ReminderNotificationReceiver.EXTRA_SESSION_ID, sessionId)
+            putExtra(ReminderNotificationReceiver.EXTRA_NOTIFICATION_ID, notificationId)
+        }
+        val presentPendingIntent = PendingIntent.getBroadcast(
+            context,
+            notificationId * 10 + 1,
+            presentIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val absentIntent = Intent(context, ReminderNotificationReceiver::class.java).apply {
+            action = ReminderNotificationReceiver.ACTION_MARK_ABSENT
+            putExtra(ReminderNotificationReceiver.EXTRA_SESSION_ID, sessionId)
+            putExtra(ReminderNotificationReceiver.EXTRA_NOTIFICATION_ID, notificationId)
+        }
+        val absentPendingIntent = PendingIntent.getBroadcast(
+            context,
+            notificationId * 10 + 2,
+            absentIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val contentText = "$subjectName ended at $endTime. Did you attend? Mark it before you forget."
+
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle("Unmarked Attendance")
+            .setContentText(contentText)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(openAppPendingIntent)
+            .addAction(0, "Present", presentPendingIntent)
+            .addAction(0, "Absent", absentPendingIntent)
+
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manager.notify(notificationId, builder.build())
+    }
+
     fun scheduleAlarm(
         context: Context,
         triggerAtMillis: Long,
@@ -148,7 +281,7 @@ object NotificationHelper {
         }
         val pendingIntent = PendingIntent.getBroadcast(
             context,
-            sessionId.toInt(),
+            (sessionId * 10 + if (minutesBefore <= 0) 1 else 0).toInt(),
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )

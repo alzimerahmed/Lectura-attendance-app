@@ -42,5 +42,6 @@ class LumeraApplication : Application() {
 
         NotificationHelper.createNotificationChannel(this)
         ReminderWorker.schedulePeriodicReminderCheck(this)
+        com.alzimerahmed.lumera.widget.LumeraWidgetReceiver.scheduleWidgetRefresh(this)
     }
 }
