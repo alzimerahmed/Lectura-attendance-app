@@ -10,3 +10,4 @@ research and implement this task,
 5) always follow the rules and the instructions given through the prompt and research and by agents
 
 6) create/read project.md and agent.md to understand our past implementations and update them when at the end of the implementation.
+and put all the documentation .md files inside a docs folder
