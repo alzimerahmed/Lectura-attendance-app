@@ -17,8 +17,8 @@ We take the security of **AttendSmartly** seriously. If you discover a security 
 
 1. **Do NOT open a public GitHub issue** for undisclosed security vulnerabilities.
 2. Report the vulnerability directly to the project maintainer:
-   - **Maintainer**: Animesh Gupta
-   - **GitHub**: [@agupta07505](https://github.com/agupta07505)
+   - **Maintainer**: alzimer ahmed
+   - **GitHub**: [@alzimerahmed84](https://github.com/alzimerahmed84)
 3. Provide detailed steps to reproduce the issue, potential impact, and suggested mitigations.
 
 ### Response Expectations

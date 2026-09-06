@@ -3,7 +3,7 @@ name: App Feedback & Review
 about: Share general feedback or usability suggestions for AttendSmartly
 title: '[FEEDBACK] '
 labels: 'feedback'
-assignees: 'agupta07505'
+assignees: 'alzimerahmed84'
 ---
 
 ## What do you like about AttendSmartly?

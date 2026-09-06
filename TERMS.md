@@ -34,4 +34,4 @@ AttendSmartly is licensed under the **GNU General Public License v3.0**. You are
 ## 5. Contact
 
 For inquiries regarding these terms:
-- **Developer**: Animesh Gupta ([@agupta07505](https://github.com/agupta07505))
+- **Developer**: alzimer ahmed ([@alzimerahmed84](https://github.com/alzimerahmed84))

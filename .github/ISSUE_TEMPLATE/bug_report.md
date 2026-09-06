@@ -3,7 +3,7 @@ name: Bug Report
 about: Create a report to help us improve AttendSmartly
 title: '[BUG] '
 labels: 'bug'
-assignees: 'agupta07505'
+assignees: 'alzimerahmed84'
 ---
 
 ## Describe the Bug

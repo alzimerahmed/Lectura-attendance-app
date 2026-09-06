@@ -137,7 +137,7 @@ $$
 ## 🚀 Getting Started & Installation
 
 ### Option 1: Download APK
-1. Go to the [Releases](https://github.com/agupta07505/AttendSmartly/releases) page.
+1. Go to the [Releases](https://github.com/alzimerahmed84/AttendSmartly/releases) page.
 2. Download the latest `AttendSmartly-Release.apk`.
 3. Install the APK on your Android device (Android 7.0 / API 24 or higher).
 
@@ -149,7 +149,7 @@ Requirements:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/agupta07505/AttendSmartly.git
+git clone https://github.com/alzimerahmed84/AttendSmartly.git
 cd AttendSmartly
 
 # 2. Build Debug APK
@@ -203,11 +203,11 @@ Read our full policies:
 
 ## 📄 Author & License
 
-Designed and developed with ❤️ by **Animesh Gupta** ([@agupta07505](https://github.com/agupta07505)).
+Designed and developed with ❤️ by **alzimer ahmed** ([@alzimerahmed84](https://github.com/alzimerahmed84)).
 
 ```text
 AttendSmartly (2026)
-© Animesh Gupta — github.com/agupta07505
+© alzimer ahmed — github.com/alzimerahmed84
 Licensed under the GNU General Public License v3.0 (GPL-3.0).
 ```
 

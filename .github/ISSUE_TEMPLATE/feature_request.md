@@ -3,7 +3,7 @@ name: Feature Request
 about: Suggest an idea or new capability for AttendSmartly
 title: '[FEATURE] '
 labels: 'enhancement'
-assignees: 'agupta07505'
+assignees: 'alzimerahmed84'
 ---
 
 ## Is your feature request related to a problem? Please describe.

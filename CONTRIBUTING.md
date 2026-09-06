@@ -27,7 +27,7 @@ This project and everyone participating in it is governed by the [AttendSmartly 
 
 ### Reporting Bugs
 
-Before creating a bug report, please check existing [GitHub Issues](https://github.com/agupta07505/AttendSmartly/issues) to see if the issue has already been reported.
+Before creating a bug report, please check existing [GitHub Issues](https://github.com/alzimerahmed84/AttendSmartly/issues) to see if the issue has already been reported.
 
 When creating a bug report using our [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md), please include:
 - A clear, descriptive title.
@@ -60,7 +60,7 @@ We welcome feature ideas! Submit a request using our [Feature Request Template](
 
 1. Clone your fork:
    ```bash
-   git clone https://github.com/agupta07505/AttendSmartly.git
+   git clone https://github.com/alzimerahmed84/AttendSmartly.git
    cd AttendSmartly
    ```
 2. Open the project in **Android Studio (Ladybug or newer)**.
@@ -105,7 +105,7 @@ Every `.kt` file in the project must preserve the following copyright header not
 ```kotlin
 /*
  * AttendSmartly (2026)
- * © Animesh Gupta — github.com/agupta07505
+ * © alzimer ahmed — github.com/alzimerahmed84
  * Licensed under the GNU GPL v3 License
  * Do not remove or alter this notice. - Per GPL-3.0 Section 4 & Section 5
  */

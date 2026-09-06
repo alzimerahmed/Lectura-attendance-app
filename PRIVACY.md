@@ -40,4 +40,4 @@ AttendSmartly requests minimal Android permissions:
 ## 5. Contact & Questions
 
 If you have any questions regarding this Privacy Policy, you can open an issue on GitHub:
-- **Developer**: Animesh Gupta ([@agupta07505](https://github.com/agupta07505))
+- **Developer**: alzimer ahmed ([@alzimerahmed84](https://github.com/alzimerahmed84))

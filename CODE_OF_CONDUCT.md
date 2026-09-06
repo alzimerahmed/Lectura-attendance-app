@@ -36,7 +36,7 @@ This Code of Conduct applies within all project spaces, and also applies when an
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer:
 
-- **Maintainer**: Animesh Gupta
-- **GitHub**: [@agupta07505](https://github.com/agupta07505)
+- **Maintainer**: alzimer ahmed
+- **GitHub**: [@alzimerahmed84](https://github.com/alzimerahmed84)
 
 All complaints will be reviewed and investigated promptly and fairly.

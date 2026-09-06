@@ -26,7 +26,7 @@ Never commit keystore files or passwords to GitHub. The following patterns are a
    - **Alias**: `upload` (or `attendsmartly`)
    - **Key Password**: Same as keystore password (or choose one)
    - **Validity**: `25` years
-   - **Certificate**: Fill in your First and Last Name (`Animesh Gupta`).
+   - **Certificate**: Fill in your First and Last Name (`alzimer ahmed`).
 6. Click **OK** and finish the wizard.
 
 ### Method B: Via Terminal (`keytool`)
